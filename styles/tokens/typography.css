@@ -4,7 +4,7 @@
 :root{
   --font-display:var(--font-spectral),Georgia,"Times New Roman",serif;
   --font-body:var(--font-archivo),"Helvetica Neue",Arial,sans-serif;
-  --font-condensed:var(--font-grotesk),"Arial Narrow",sans-serif;/* interface caps — clean industrial grotesk */
+  --font-condensed:var(--font-instrument),"Helvetica Neue",Arial,sans-serif;/* interface caps — refined, editorial sans */
   --font-mono:var(--font-roboto-mono),ui-monospace,"Courier New",monospace;
 
   --weight-light:300;/* @kind font */
@@ -17,16 +17,16 @@
   --size-display-1:168px;
   --size-display-2:104px;
   --size-display-3:58px;
-  --size-display-4:37px;
+  --size-display-4:32px;
 
   /* reading — the record, and nothing else lives here */
-  --size-lede:21px;
-  --size-body:18px;
-  --size-body-sm:16px;
+  --size-lede:19px;
+  --size-body:16px;
+  --size-body-sm:14px;
 
-  /* interface — dense but legible, industrial register */
-  --size-label:15px;
-  --size-micro:13px;
+  /* interface — dense but legible, industry-standard register */
+  --size-label:12px;
+  --size-micro:10px;
 
   --leading-tight:0.94;/* @kind font */
   --leading-display:1.02;/* @kind font */
@@ -37,7 +37,7 @@
   --tracking-display:-0.03em;/* @kind font */
   --tracking-body:0;/* @kind font */
   --tracking-label:0.1em;/* @kind font */
-  --tracking-micro:0.14em;/* @kind font */
+  --tracking-micro:0.12em;/* @kind font */
   --tracking-data:0.06em;/* @kind font */
   --tracking-wordmark:0.14em;/* @kind font */
 

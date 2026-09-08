@@ -35,7 +35,7 @@
 .bm-iconbtn:disabled{color:var(--text-disabled);cursor:not-allowed}
 .bm-iconbtn--bordered:hover:not(:disabled)::before{border-color:var(--accent-2)}
 .bm-iconbtn--sm{width:var(--control-height-sm);height:var(--control-height-sm);font-size:11px}
-.bm-iconbtn__count{position:absolute;top:0;right:0;font:var(--type-data);font-size:12px;color:var(--text-accent)}
+.bm-iconbtn__count{position:absolute;top:0;right:0;font:var(--type-data);font-size:11px;color:var(--text-accent)}
 
 /* Wordmark — stamped, uneven ---------------------------------------------- */
 .bm-wordmark{display:inline-block;font-family:var(--font-condensed);font-weight:400;letter-spacing:var(--tracking-wordmark);text-transform:uppercase;color:var(--text-body);line-height:1;text-indent:var(--tracking-wordmark);white-space:nowrap;border:0}
@@ -65,7 +65,7 @@
 /* Fields — baseline rules, never boxes ----------------------------------- */
 .bm-field{display:flex;flex-direction:column;gap:var(--space-3)}
 .bm-field__label{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
-.bm-field__note{font:var(--type-data);font-size:14px;letter-spacing:var(--tracking-data);color:var(--text-faint)}
+.bm-field__note{font:var(--type-data);font-size:12px;letter-spacing:var(--tracking-data);color:var(--text-faint)}
 .bm-field__note--error{color:var(--text-accent)}
 .bm-input{height:var(--control-height);padding:0 0 var(--space-2);background:none;color:var(--text-body);border:0;border-radius:0;font:var(--type-body);font-size:var(--size-body-sm);transition:var(--transition-control);width:100%;box-sizing:border-box}
 .bm-field__rule{height:1px;background:rgba(20,22,27,.22);filter:var(--filter-edge-rough);transition:var(--transition-control)}
@@ -152,12 +152,12 @@
 .bm-product--minor .bm-product__name{font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-secondary)}
 .bm-product--lead .bm-product__name{font-size:var(--size-display-3)}
 .bm-product__row{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-5)}
-.bm-product__price{font:var(--type-data);font-size:15px;color:var(--text-faint);white-space:nowrap}
+.bm-product__price{font:var(--type-data);font-size:13px;color:var(--text-faint);white-space:nowrap}
 .bm-product__meta{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
 .bm-product:hover .bm-product__name{color:var(--text-blown)}
 .bm-product:hover .bm-plate{border-color:var(--ink-text-1)}
 .bm-sizes{display:flex;flex-wrap:wrap;gap:var(--space-2)}
-.bm-size{position:relative;min-width:40px;height:var(--control-height);padding:0 var(--space-4);border:0;background:none;color:var(--text-faint);font:var(--type-data);font-size:15px;cursor:pointer;transition:var(--transition-control)}
+.bm-size{position:relative;min-width:40px;height:var(--control-height);padding:0 var(--space-4);border:0;background:none;color:var(--text-faint);font:var(--type-data);font-size:13px;cursor:pointer;transition:var(--transition-control)}
 .bm-size::before{content:"";position:absolute;inset:0;border:1px solid var(--border-edge);filter:var(--filter-edge-rough);pointer-events:none;transition:var(--transition-control)}
 .bm-size:hover:not(:disabled){color:var(--text-body)}
 .bm-size:hover:not(:disabled)::before{border-color:var(--border-strong)}
@@ -167,7 +167,7 @@
 .bm-cartline{display:grid;grid-template-columns:52px 1fr auto;gap:var(--space-5);padding:var(--space-5) 0;align-items:start;border:0;position:relative}
 .bm-cartline::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(230,225,214,.13);filter:var(--filter-rule-wobble)}
 .bm-cartline__body{display:flex;flex-direction:column;gap:var(--space-2)}
-.bm-cartline__qty{display:flex;align-items:center;gap:var(--space-3);font:var(--type-data);font-size:15px;color:var(--text-faint);margin-top:var(--space-2)}
+.bm-cartline__qty{display:flex;align-items:center;gap:var(--space-3);font:var(--type-data);font-size:13px;color:var(--text-faint);margin-top:var(--space-2)}
 
 /* Editorial --------------------------------------------------------------- */
 .bm-rule{display:flex;align-items:center;gap:var(--space-6);margin:var(--stack-section) 0}
@@ -177,7 +177,7 @@
 .bm-rule--plain{margin:var(--space-8) 0}
 .bm-rule--oxide .bm-rule__line{background:var(--accent-2)}
 .bm-rule--oxide .bm-rule__label{color:var(--text-accent)}
-.bm-annot{position:relative;font:var(--type-data);font-size:14px;line-height:1.7;letter-spacing:var(--tracking-data);color:var(--text-faint);max-width:var(--measure-note);padding-left:var(--space-5)}
+.bm-annot{position:relative;font:var(--type-data);font-size:12px;line-height:1.7;letter-spacing:var(--tracking-data);color:var(--text-faint);max-width:var(--measure-note);padding-left:var(--space-5)}
 .bm-annot::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:1px;background:var(--border-mid)}
 .bm-annot__ref{display:block;color:var(--text-secondary);margin-bottom:var(--space-2)}
 .bm-annot--marker::before{background:var(--accent-1)}
@@ -217,5 +217,5 @@
 .bm-toast__close{background:none;border:0;color:inherit;cursor:pointer;font-family:var(--font-mono);font-size:12px;opacity:.6;transition:opacity var(--dur-fast) var(--ease-smooth)}
 .bm-toast__close:hover{opacity:1}
 .bm-tip{position:relative;display:inline-flex}
-.bm-tip__bubble{position:absolute;bottom:calc(100% + var(--space-3));left:50%;transform:translateX(-50%);background:var(--ink-0);color:var(--text-body);border:1px solid var(--border-mid);padding:var(--space-2) var(--space-4);font:var(--type-data);font-size:14px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--dur-fast) var(--ease-flat);z-index:20}
+.bm-tip__bubble{position:absolute;bottom:calc(100% + var(--space-3));left:50%;transform:translateX(-50%);background:var(--ink-0);color:var(--text-body);border:1px solid var(--border-mid);padding:var(--space-2) var(--space-4);font:var(--type-data);font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--dur-fast) var(--ease-flat);z-index:20}
 .bm-tip:hover .bm-tip__bubble,.bm-tip:focus-within .bm-tip__bubble{opacity:1}

@@ -102,26 +102,21 @@ export function Splash() {
     >
       <div className="bm-splash-in" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-6)" }}>
         <Image src={wordmark} alt="Beyond Mortals" priority style={{ width: 260, maxWidth: "40vw", height: "auto" }} />
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-3)", width: 180 }}>
-          <div style={{ position: "relative", width: "100%", height: 1, background: "var(--border-hair)", overflow: "hidden" }}>
-            <div
-              role="progressbar"
-              aria-valuenow={progress}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "var(--accent-1)",
-                transformOrigin: "left center",
-                transform: `scaleX(${progress / 100})`,
-                transition: "transform 120ms var(--ease-flat)",
-              }}
-            />
-          </div>
-          <span className="bm-data" style={{ fontSize: 11, letterSpacing: "var(--tracking-data)", color: "var(--text-faint)", fontVariantNumeric: "tabular-nums" }}>
-            {String(progress).padStart(3, "0")}
-          </span>
+        <div style={{ position: "relative", width: 180, height: 1, background: "var(--border-hair)", overflow: "hidden" }}>
+          <div
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "var(--accent-1)",
+              transformOrigin: "left center",
+              transform: `scaleX(${progress / 100})`,
+              transition: "transform 120ms var(--ease-flat)",
+            }}
+          />
         </div>
       </div>
     </div>

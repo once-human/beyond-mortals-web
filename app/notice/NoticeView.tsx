@@ -42,7 +42,7 @@ export function NoticeView() {
               {sent ? "Recorded" : "Notify"}
             </Button>
             {sent ? (
-              <span className="bm-data" style={{ fontSize: "15px", color: "var(--text-accent)" }}>
+              <span className="bm-data" style={{ fontSize: "13px", color: "var(--text-accent)" }}>
                 ADDED TO THE LIST. NOTHING ELSE WILL ARRIVE.
               </span>
             ) : null}

@@ -29,7 +29,7 @@ export default function Catalogue() {
           <h1 style={{ font: "var(--weight-light) var(--size-display-2)/0.98 var(--font-display)", letterSpacing: "var(--tracking-display)", margin: "var(--space-5) 0 0" }}>Drop 01</h1>
         </div>
         <div style={{ gridColumn: "9 / span 4" }}>
-          <div className="bm-data" style={{ fontSize: "15px", color: "var(--text-faint)", lineHeight: 1.9 }}>
+          <div className="bm-data" style={{ fontSize: "13px", color: "var(--text-faint)", lineHeight: 1.9 }}>
             <div>SIX PIECES</div>
             <div>PRINTED TO ORDER · NO RESTOCK NEEDED</div>
             <div>₹1,800 — ₹2,000</div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Roboto_Mono, Space_Grotesk, Spectral } from "next/font/google";
+import { Archivo, Instrument_Sans, Roboto_Mono, Spectral } from "next/font/google";
 import React from "react";
 import { BagDialog } from "@/components/chrome/BagDialog";
 import { Footer } from "@/components/chrome/Footer";
@@ -20,11 +20,12 @@ const spectral = Spectral({
   display: "swap",
 });
 
-// Interface caps (nav, labels, plate codes, wordmark): a clean industrial grotesk.
-const spaceGrotesk = Space_Grotesk({
+// Interface caps (nav, labels, plate codes, wordmark): a refined, editorial sans —
+// quiet and considered rather than a startup/tech grotesk.
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  variable: "--font-grotesk",
+  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spectral.variable} ${spaceGrotesk.variable} ${archivo.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${spectral.variable} ${instrumentSans.variable} ${archivo.variable} ${robotoMono.variable}`}>
       <body>
         <a href="#main-content" className="bm-skip-link">
           Skip to content
