@@ -35,13 +35,12 @@
   --ink-text-2:#5B5344;
   --ink-text-3:#8A8065;
 
-  /* accent — the only accent colour. Cobalt blue, lifted from the shirt reference, pulled deeper
-     and less saturated than a screen-bright royal blue so it reads as ink rather than pixel:
-     deep navy base, muted indigo-blue for text/borders/default fills, a modestly richer step up
-     for hover/emphasis. Reads correctly against both paper and the ink stamps */
-  --accent-0:#131A3E;
-  --accent-1:#2B3B7E;
-  --accent-2:#34459C;
+  /* accent — the only accent colour. Cobalt blue, lifted from the shirt reference: deep navy
+     base, true mid blue, brighter blue for hover/emphasis. Reads correctly against both paper
+     and the ink stamps */
+  --accent-0:#16225C;
+  --accent-1:#2647C4;
+  --accent-2:#3F63E8;
 
   /* crimson — one element sitewide, nothing else. Currently unused */
   --crimson:#B41F16;
@@ -58,7 +57,7 @@
   --text-faint:var(--ink-text-2);
   --text-disabled:var(--ink-text-3);
   --text-blown:#000000;
-  --text-accent:var(--accent-1);
+  --text-accent:var(--accent-2);
 
   --border-hair:rgba(23,20,15,.10);
   --border-mid:rgba(23,20,15,.16);
@@ -69,7 +68,7 @@
   --border-edge:var(--border-mid);
 
   --focus-ring:var(--ink-text-2);
-  --selection-bg:#D2D6E9;
+  --selection-bg:#C9D5F5;
 
   /* semantic — the dark "stamp" pair: Dialog / Toast / Tooltip / primary-button fill stay a
      solid ink chip regardless of theme, with pale text on top */
