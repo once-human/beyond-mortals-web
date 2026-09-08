@@ -116,32 +116,3 @@ component — not a rebuild.
 `app/icon.svg` is a placeholder: the **B** lifted straight out of the wordmark,
 bone on ink. It is the only defensible favicon while the identity is
 wordmark-only, but the glyph is still an open decision.
-
----
-
-## Deploy shim — delete this once git is wired up
-
-`scripts/unpack.mjs` + `scripts/source.b64` exist **only** because the first
-deployment had to go up through Vercel's inline file upload, which carries the
-whole tree in one request, and the source does not fit in one. The app/,
-components/, lib/, content/ and public/ trees travel as a gzipped blob and are
-expanded by the project's `installCommand`:
-
-```
-node scripts/unpack.mjs && npm install
-```
-
-Nothing in the application touches either file, and `unpack.mjs` never
-overwrites a file that already exists, so it is a no-op in a real checkout.
-**When the repo is on GitHub and Vercel builds from a push: delete
-`scripts/source.b64`, delete `scripts/unpack.mjs`, and reset the project's
-install command to the default.**
-
----
-
-## Environment
-
-```
-NEXT_PUBLIC_API_URL=      # unset → fixtures
-NEXT_PUBLIC_SITE_URL=     # used by sitemap.ts and robots.ts
-```
