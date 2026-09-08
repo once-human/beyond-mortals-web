@@ -30,7 +30,9 @@ if (!existsSync(blob)) {
 }
 
 const files = JSON.parse(
-  gunzipSync(Buffer.from(readFileSync(blob, "utf8"), "base64")).toString("utf8"),
+  gunzipSync(
+    Buffer.from(readFileSync(blob, "utf8").replace(/\s+/g, ""), "base64"),
+  ).toString("utf8"),
 );
 
 let written = 0;
