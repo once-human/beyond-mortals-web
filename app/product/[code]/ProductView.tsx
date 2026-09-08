@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Dialog } from "@/components/ui/Dialog";
 import { ImagePlate } from "@/components/ui/ImagePlate";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { Rule } from "@/components/ui/Rule";
 import { Sheet } from "@/components/ui/Sheet";
 import { SizePicker } from "@/components/ui/SizePicker";
@@ -88,9 +89,9 @@ export function ProductView({ product }: { product: Product }) {
       <Rule label="Also in drop 01" />
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", alignItems: "start" }}>
         {related.map((x, i) => (
-          <div key={x.code} style={{ gridColumn: i === 0 ? "1 / span 4" : i === 1 ? "6 / span 3" : "10 / span 3", marginTop: i === 1 ? "var(--space-9)" : i === 2 ? "var(--space-5)" : 0 }}>
+          <Reveal key={x.code} index={i} style={{ gridColumn: i === 0 ? "1 / span 4" : i === 1 ? "6 / span 3" : "10 / span 3", marginTop: i === 1 ? "var(--space-9)" : i === 2 ? "var(--space-5)" : 0 }}>
             <ProductCard {...x} scale={i === 0 ? "standard" : "minor"} href={`/product/${productSlug(x.code)}`} />
-          </div>
+          </Reveal>
         ))}
       </div>
       <Dialog open={guide} title="Size guide" onClose={() => setGuide(false)} footer={<Button variant="outline" size="sm" onClick={() => setGuide(false)}>Close</Button>}>

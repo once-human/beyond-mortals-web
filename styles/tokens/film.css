@@ -62,7 +62,7 @@
 
 /* hand-cut edges. The element itself carries no border; this pseudo does, displaced. */
 .bm-edge{position:relative}
-.bm-edge::before{content:"";position:absolute;inset:0;border:1px solid var(--border-edge);filter:var(--filter-edge-rough);pointer-events:none}
+.bm-edge::before{content:"";position:absolute;inset:0;border:1px solid var(--border-edge);filter:var(--filter-edge-rough);pointer-events:none;transition:var(--transition-control)}
 .bm-edge--frayed::before{filter:var(--filter-edge-frayed)}
 .bm-edge--top::before{border-width:1px 0 0}
 .bm-edge--bottom::before{border-width:0 0 1px}

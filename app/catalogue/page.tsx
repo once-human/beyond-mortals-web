@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { Rule } from "@/components/ui/Rule";
 import { Stamped } from "@/components/ui/Stamped";
 import { productSlug, products } from "@/lib/data";
@@ -40,17 +41,17 @@ export default function Catalogue() {
         {products.map((p, i) => {
           const pl = PLACEMENT[i % PLACEMENT.length];
           return (
-            <div key={p.code} style={{ gridColumn: pl.col, marginTop: pl.top, marginLeft: pl.bleed ? "calc(var(--gutter-page) * -1)" : undefined }}>
+            <Reveal key={p.code} index={i} style={{ gridColumn: pl.col, marginTop: pl.top, marginLeft: pl.bleed ? "calc(var(--gutter-page) * -1)" : undefined }}>
               <ProductCard {...p} scale={pl.scale} href={`/product/${productSlug(p.code)}`} />
-            </div>
+            </Reveal>
           );
         })}
       </div>
       <Rule label="Phase 2 — Hewn" tone="oxide" />
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)" }}>
-        <p style={{ gridColumn: "3 / span 6", font: "var(--type-record)", color: "var(--text-secondary)", maxWidth: "var(--measure-record)", margin: 0 }}>
+        <Reveal as="p" style={{ gridColumn: "3 / span 6", font: "var(--type-record)", color: "var(--text-secondary)", maxWidth: "var(--measure-record)", margin: 0 }}>
           Hand-cut, hand-sewn, in runs small enough to count. Not open. Notice goes out to the mailing list first.
-        </p>
+        </Reveal>
       </div>
     </main>
   );

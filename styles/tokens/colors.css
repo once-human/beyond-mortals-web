@@ -69,7 +69,7 @@
   --border-accent:var(--accent-1);
   --border-edge:var(--border-mid);
 
-  --focus-ring:var(--ink-text-2);
+  --focus-ring:var(--accent-1);
   --selection-bg:#C9D5F5;
 
   /* semantic — the dark "stamp" pair: Dialog / Toast / Tooltip / primary-button fill stay a

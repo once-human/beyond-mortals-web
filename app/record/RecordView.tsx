@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Annotation } from "@/components/ui/Annotation";
+import { Reveal } from "@/components/ui/Reveal";
 import { Sheet } from "@/components/ui/Sheet";
 import { Stamped } from "@/components/ui/Stamped";
 import { Switch } from "@/components/ui/Switch";
@@ -21,7 +22,7 @@ export function RecordView() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", paddingTop: "var(--space-9)" }}>
         <article style={{ gridColumn: "2 / span 6" }}>
           {record.map((block, i) => (
-            <section key={i} style={{ marginBottom: i === 3 ? "var(--stack-chapter)" : "var(--space-9)" }}>
+            <Reveal key={i} as="section" eager={i === 0} style={{ marginBottom: i === 3 ? "var(--stack-chapter)" : "var(--space-9)" }}>
               <div style={{ display: "flex", alignItems: "baseline", gap: "var(--space-6)", marginBottom: "var(--space-6)" }}>
                 <span style={{ font: "var(--weight-regular) var(--size-display-4)/1 var(--font-display)", color: "var(--paper-4)" }}>{marks[i]}</span>
                 {i === 0 ? (
@@ -53,7 +54,7 @@ export function RecordView() {
                 </div>
               ) : null}
               {i < record.length - 1 ? <div className="bm-hand-rule bm-hand-rule--faint" style={{ marginTop: "var(--space-8)", width: "62%" }} /> : null}
-            </section>
+            </Reveal>
           ))}
           <div style={{ padding: "0 0 var(--space-9)" }}>
             <TextLink micro mark="→" href="/catalogue">

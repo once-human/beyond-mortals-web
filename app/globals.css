@@ -23,11 +23,6 @@ body {
   box-sizing: border-box;
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent-1);
-  outline-offset: 2px;
-}
-
 .bm-skip-link {
   position: absolute;
   top: -100%;
@@ -45,6 +40,27 @@ body {
 
 .bm-skip-link:focus-visible {
   top: var(--space-4);
+}
+
+@keyframes bm-splash-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bm-splash-in {
+  animation: bm-splash-in 620ms var(--ease-glide) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bm-splash-in {
+    animation: none;
+  }
 }
 
 .bm-toast-slot {

@@ -2,6 +2,7 @@ import React from "react";
 import { ImagePlate } from "@/components/ui/ImagePlate";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { PullQuote } from "@/components/ui/PullQuote";
+import { Reveal } from "@/components/ui/Reveal";
 import { Rule } from "@/components/ui/Rule";
 import { Stamped } from "@/components/ui/Stamped";
 import { TextLink } from "@/components/ui/TextLink";
@@ -33,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* campaign plate running past the right margin, wordmark laid over the image like a signature on a photograph */}
-      <section style={{ position: "relative", marginRight: "calc(var(--gutter-page) * -1)" }}>
+      <Reveal as="section" style={{ position: "relative", marginRight: "calc(var(--gutter-page) * -1)" }}>
         <ImagePlate ratio="panorama" plate="PLATE 01" stock="CAMPAIGN / DROP 01" caption="Placeholder — not brand photography" treatment="deep" deckle src={campaign} alt="Drop 01 campaign photography, placeholder">
           <div style={{ position: "absolute", inset: 0, background: "var(--scrim-bottom)" }} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -43,21 +44,21 @@ export default function Home() {
             style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: "56%", maxWidth: 640, height: "auto", zIndex: 2 }}
           />
         </ImagePlate>
-      </section>
+      </Reveal>
 
       <Rule label="Drop 01 — six pieces" />
 
       {/* irregular catalogue preview: sizes and offsets differ */}
       <section style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", alignItems: "start" }}>
-        <div style={{ gridColumn: "1 / span 5" }}>
+        <Reveal index={0} style={{ gridColumn: "1 / span 5" }}>
           <ProductCard scale="lead" {...products[0]} href={`/product/${productSlug(products[0].code)}`} />
-        </div>
-        <div style={{ gridColumn: "7 / span 3", marginTop: "var(--space-10)" }}>
+        </Reveal>
+        <Reveal index={1} style={{ gridColumn: "7 / span 3", marginTop: "var(--space-10)" }}>
           <ProductCard scale="minor" {...products[1]} href={`/product/${productSlug(products[1].code)}`} />
-        </div>
-        <div style={{ gridColumn: "10 / span 3", marginTop: "var(--space-6)" }}>
+        </Reveal>
+        <Reveal index={2} style={{ gridColumn: "10 / span 3", marginTop: "var(--space-6)" }}>
           <ProductCard {...products[2]} href={`/product/${productSlug(products[2].code)}`} />
-        </div>
+        </Reveal>
       </section>
 
       <div style={{ marginTop: "var(--space-8)" }}>
@@ -67,7 +68,7 @@ export default function Home() {
       </div>
 
       {/* deliberate empty run, then the quote set off to the right */}
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", padding: "var(--stack-chapter) 0 0" }}>
+      <Reveal as="section" style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", padding: "var(--stack-chapter) 0 0" }}>
         <div style={{ gridColumn: "2 / span 1" }}>
           <Stamped className="bm-micro" amount={1.15}>
             Ref
@@ -79,7 +80,7 @@ export default function Home() {
             The record in full
           </TextLink>
         </div>
-      </section>
+      </Reveal>
     </main>
   );
 }

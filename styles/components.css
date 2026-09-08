@@ -104,7 +104,7 @@
 /* Plates — the universal image container. Code above, caption below ------- */
 .bm-plate-fig{margin:0;display:flex;flex-direction:column;gap:var(--space-3)}
 .bm-plate__code{display:flex;justify-content:space-between;gap:var(--space-4);font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-secondary)}
-.bm-plate{position:relative;overflow:hidden;background:var(--plate-empty);border:var(--rule-plate);box-shadow:var(--plate-mount);display:grid;place-items:center}
+.bm-plate{position:relative;overflow:hidden;background:var(--plate-empty);border:var(--rule-plate);box-shadow:var(--plate-mount);display:grid;place-items:center;transition:var(--transition-control)}
 .bm-plate::before{content:"";position:absolute;inset:0;background-image:var(--vignette-off);z-index:2;pointer-events:none}
 .bm-plate::after{content:"";position:absolute;inset:0;background-image:var(--grain-fine),var(--grain-coarse);background-size:var(--grain-scale),var(--grain-scale-coarse);opacity:var(--grain-opacity-plate);mix-blend-mode:var(--grain-blend);z-index:3;pointer-events:none}
 .bm-plate img{filter:var(--treat-silver);transition:filter var(--dur-slow) var(--ease-flat)}
@@ -214,7 +214,7 @@
 .bm-toast__text{flex:1;font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase}
 .bm-toast--marker{color:var(--text-accent)}
 .bm-toast--marker::before{border-color:var(--accent-1)}
-.bm-toast__close{background:none;border:0;color:inherit;cursor:pointer;font-family:var(--font-mono);font-size:12px;opacity:.6}
+.bm-toast__close{background:none;border:0;color:inherit;cursor:pointer;font-family:var(--font-mono);font-size:12px;opacity:.6;transition:opacity var(--dur-fast) var(--ease-smooth)}
 .bm-toast__close:hover{opacity:1}
 .bm-tip{position:relative;display:inline-flex}
 .bm-tip__bubble{position:absolute;bottom:calc(100% + var(--space-3));left:50%;transform:translateX(-50%);background:var(--ink-0);color:var(--text-body);border:1px solid var(--border-mid);padding:var(--space-2) var(--space-4);font:var(--type-data);font-size:14px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--dur-fast) var(--ease-flat);z-index:20}
