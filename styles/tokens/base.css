@@ -1,0 +1,18 @@
+/* Beyond Mortals — base. Dark only. The page is a print: crushed ground, bone type,
+   and one global film layer over everything (mount <FilmLayer/> once at the root). */
+:root{color-scheme:light}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;background:var(--surface-page)}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);text-wrap:pretty}
+::selection{background:var(--selection-bg);color:var(--text-body)}
+a{color:var(--text-body);text-decoration:none;border-bottom:1px solid var(--border-mid);transition:var(--transition-control)}
+a:hover{color:var(--text-body);border-bottom-color:var(--border-accent)}
+a:active{opacity:.8}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:1px solid var(--focus-ring);outline-offset:2px}
+img{display:block;max-width:100%}
+hr{border:0;height:1px;background-image:var(--rule-print);margin:var(--space-8) 0}
+.bm-label{font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-faint)}
+.bm-micro{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
+.bm-data{font:var(--type-data);letter-spacing:var(--tracking-data);color:var(--text-secondary)}
+.bm-print-rule{height:1px;background-image:var(--rule-print);border:0}
+.bm-print-rule--faint{background-image:var(--rule-print-faint)}
+.bm-print-rule--accent{background-image:var(--rule-print-accent)}

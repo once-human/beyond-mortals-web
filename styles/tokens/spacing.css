@@ -1,0 +1,32 @@
+/* Beyond Mortals — spacing. Base 2px, irregular by intent: the steps 6, 10, 14, 22, 34
+   keep layouts off the tidy 8px grid so nothing reads machine-set. */
+:root{
+  --space-1:2px;
+  --space-2:4px;
+  --space-3:6px;
+  --space-4:10px;
+  --space-5:14px;
+  --space-6:22px;
+  --space-7:34px;
+  --space-8:52px;
+  --space-9:78px;
+  --space-10:114px;
+  --space-11:168px;
+
+  --gutter-page:34px;
+  --gutter-page-wide:78px;
+  --gutter-column:22px;
+  --stack-paragraph:22px;
+  --stack-section:78px;
+  --stack-chapter:168px;
+
+  --control-height-sm:30px;
+  --control-height:38px;
+  --control-height-lg:46px;
+  --control-pad-x:18px;
+  --field-pad-x:11px;
+
+  --container-page:1280px;
+  --container-record:660px;
+  --container-narrow:440px;
+}

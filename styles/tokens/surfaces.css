@@ -1,0 +1,29 @@
+/* Beyond Mortals — surfaces. No fills, no cards, no shadows, no glows, no radius.
+   Structure is hairline rules and type. The only depth is a plate mount line. */
+:root{
+  --radius-0:0px;
+  --radius-2:2px;
+  --radius-round:50%;
+
+  --hair:1px;/* @kind spacing */
+  --border-weight:1px;/* @kind spacing */
+  --rule-hair:1px solid var(--border-hair);/* @kind other */
+  --rule-mid:1px solid var(--border-mid);/* @kind other */
+  --rule-plate:1px solid var(--border-plate);/* @kind other */
+
+  --shadow-none:none;/* @kind other */
+  --plate-mount:inset 0 0 0 1px var(--ink-0),inset 0 0 0 2px var(--border-plate);/* @kind shadow */
+
+  /* archival translucency: vellum and tracing paper. Never blur, never frosted glass */
+  --vellum-fill:var(--surface-vellum);/* @kind other */
+  --vellum-fill-strong:var(--surface-vellum-strong);/* @kind other */
+  --vellum-border:1px solid var(--border-vellum);/* @kind other */
+  --vellum-skew:-0.35deg;/* @kind other */ /* sheets are laid on slightly out of true */
+
+  /* protection over imagery: a printed scrim, never a capsule and never a blur */
+  --scrim-bottom:linear-gradient(to top,rgba(3,3,3,.95) 0%,rgba(3,3,3,.6) 42%,rgba(3,3,3,0) 100%);/* @kind other */
+  --scrim-top:linear-gradient(to bottom,rgba(3,3,3,.9) 0%,rgba(3,3,3,0) 100%);/* @kind other */
+  --scrim-flat:rgba(3,3,3,.86);/* @kind other */
+
+  --plate-empty:var(--ink-2);/* @kind color */
+}

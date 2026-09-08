@@ -1,82 +1,73 @@
+"use client";
 import Link from "next/link";
-import { Wordmark } from "@/components/brand/Wordmark";
-import { NoticeForm } from "@/components/chrome/NoticeForm";
+import React from "react";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
+import { Stamped } from "../ui/Stamped";
+import { Wordmark } from "../ui/Wordmark";
+import { useCart } from "@/lib/cart-context";
 
-const COLS = [
-  {
-    head: "THE RECORD",
-    items: [
-      ["The Record", "/the-record"],
-      ["Marginalia", "/marginalia"],
-      ["Cited", "/cited"],
-      ["The Archive", "/archive"],
-    ],
-  },
-  {
-    head: "CLIENT SERVICES",
-    items: [
-      ["Shipping", "/client-services#shipping"],
-      ["Returns", "/client-services#returns"],
-      ["Size guide", "/size-guide"],
-      ["Care", "/client-services#care"],
-      ["Contact", "/client-services#contact"],
-    ],
-  },
-  {
-    head: "HELD AT",
-    items: [
-      ["New Delhi", "/held-at"],
-      ["Bombay", "/held-at"],
-      ["Bangalore", "/held-at"],
-      ["Stockists", "/held-at"],
-    ],
-  },
+const PAGES: [string, string][] = [
+  ["/record", "The Record"],
+  ["/catalogue", "Catalogue"],
+  ["/notice", "Notice"],
 ];
 
 export function Footer() {
+  const { say } = useCart();
   return (
-    <footer className="border-t border-rule">
-      <div className="wrap grid grid-cols-1 gap-12 pt-14 pb-12 sm:grid-cols-2 lg:grid-cols-4">
-        {COLS.map((c) => (
-          <div key={c.head} className="flex flex-col gap-[14px]">
-            <span className="t-label-s text-muted">{c.head}</span>
-            {c.items.map(([label, href]) => (
-              <Link key={label} href={href} className="t-body-s link-rule w-fit text-secondary transition-colors duration-500 hover:text-bright">
-                {label}
-              </Link>
-            ))}
-          </div>
-        ))}
-
-        <div className="flex flex-col gap-4 lg:col-span-1">
-          <span className="t-label-s text-muted">THE NOTICE</span>
-          <p className="t-body-s max-w-[36ch] text-secondary">
-            One email, the morning the drop opens. Nothing else, ever.
+    <footer style={{ marginTop: "var(--stack-chapter)", background: "var(--surface-deep)" }}>
+      <div className="bm-hand-rule" />
+      <div
+        style={{
+          maxWidth: "var(--container-page)",
+          margin: "0 auto",
+          padding: "var(--space-9) var(--gutter-page) var(--space-8)",
+          display: "grid",
+          gridTemplateColumns: "repeat(12,1fr)",
+          gap: "var(--gutter-column)",
+        }}
+      >
+        <div style={{ gridColumn: "1 / span 5" }}>
+          <Stamped className="bm-micro" as="div">
+            Notice
+          </Stamped>
+          <p style={{ font: "var(--type-body)", fontSize: "var(--size-body-sm)", color: "var(--text-secondary)", maxWidth: "36ch", margin: "var(--space-5) 0 var(--space-6)" }}>
+            Drop 01 is six pieces, printed to order. Notice goes out once, the morning it opens.
           </p>
-          <NoticeForm />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              say("Added to the list");
+            }}
+            style={{ display: "flex", gap: "var(--space-3)", maxWidth: 340 }}
+          >
+            <Input placeholder="name@domain" aria-label="Email" />
+            <Button variant="primary" type="submit">
+              Notify
+            </Button>
+          </form>
         </div>
-      </div>
-
-      <div className="wrap flex flex-col gap-6 border-t border-rule-faint py-7 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-7">
-          <span className="text-muted">
-            <Wordmark width={150} />
-          </span>
-          <span className="t-mono-s hidden text-faint md:inline">
-            Nothing here is ever discounted.
-          </span>
-        </div>
-        <div className="flex items-center gap-7">
-          {[
-            ["Instagram", "https://instagram.com/beyondthemortals"],
-            ["Terms", "/legal/terms"],
-            ["Privacy", "/legal/privacy"],
-          ].map(([l, h]) => (
-            <Link key={l} href={h} className="t-mono-s link-rule text-faint transition-colors duration-500 hover:text-secondary">
-              {l}
+        <div style={{ gridColumn: "8 / span 2", display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+          <Stamped className="bm-micro" as="div">
+            Pages
+          </Stamped>
+          {PAGES.map(([href, label]) => (
+            <Link key={href} href={href} className="bm-link bm-link--quiet" style={{ fontSize: "var(--size-body-sm)" }}>
+              {label}
             </Link>
           ))}
         </div>
+        <div style={{ gridColumn: "11 / span 2", display: "flex", flexDirection: "column", gap: "var(--space-4)", marginTop: "var(--space-7)" }}>
+          <a href="#" className="bm-link bm-link--quiet" style={{ fontSize: "var(--size-body-sm)" }}>
+            @beyondthemortals ↗
+          </a>
+          <span className="bm-micro">Printed to order · Bengaluru</span>
+          <span className="bm-micro">Drop 01 · 2026</span>
+        </div>
+      </div>
+      <div style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "0 var(--gutter-page) var(--space-9)" }}>
+        <Wordmark size={11} amount={1.2} tone="var(--paper-4)" />
       </div>
     </footer>
   );

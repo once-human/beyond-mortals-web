@@ -1,0 +1,77 @@
+/* Beyond Mortals — colour. Light, archival: warm paper ground, crushed-ink type.
+   One accent: OXBLOOD — dried blood, desaturated and brown, never fire-engine red.
+   Crimson exists as a single token for exactly one element sitewide.
+   ink-* and bone-* keep their original dark-theme values unchanged — they are reused here for
+   the "stamp" surfaces (Dialog, Toast, Tooltip, the plate mount/void, primary button fill) that
+   stay dark ink chips regardless of theme, echoing a rubber stamp or ticket stub against paper. */
+:root{
+  /* ink — crushed, near-pure black. Used for stamp surfaces and primary-button fill, not the page */
+  --ink-0:#030303;
+  --ink-1:#080807;
+  --ink-2:#0E0E0D;
+  --ink-3:#151513;
+  --ink-4:#1E1E1B;
+  --ink-5:#2A2A26;
+
+  /* bone — pale type-on-ink. Used only on the dark stamp surfaces above */
+  --bone-blown:#FFFFFF;
+  --bone-0:#E6E1D6;
+  --bone-1:#C4BEB2;
+  --bone-2:#8F8A80;
+  --bone-3:#615D56;
+  --bone-4:#3D3A35;
+
+  /* paper — the page ground. Warm, slightly uneven, never stark white */
+  --paper-0:#FBF8F1;
+  --paper-1:#F1ECDE;
+  --paper-2:#E6DEC8;
+  --paper-3:#D6CAAA;
+  --paper-4:#B9AC8B;
+
+  /* ink-text — body copy on paper. A genuine light-mode hierarchy, distinct from the ink-* ramp
+     above (which barely varies — it exists to read as "black", not to step down in weight) */
+  --ink-text-0:#17140F;
+  --ink-text-1:#2C2820;
+  --ink-text-2:#5B5344;
+  --ink-text-3:#8A8065;
+
+  /* oxblood — the only accent. Unchanged: reads correctly against both paper and the ink stamps */
+  --oxblood-0:#4E1C16;
+  --oxblood-1:#6B2A1F;
+  --oxblood-2:#8A3B2B;
+
+  /* crimson — one element sitewide, nothing else. Currently unused */
+  --crimson:#B41F16;
+
+  /* semantic — page chrome, on paper */
+  --surface-page:var(--paper-0);
+  --surface-deep:var(--paper-2);
+  --surface-raised:var(--paper-1);
+  --surface-vellum:rgba(23,20,15,.045);
+  --surface-vellum-strong:rgba(23,20,15,.08);
+
+  --text-body:var(--ink-text-0);
+  --text-secondary:var(--ink-text-1);
+  --text-faint:var(--ink-text-2);
+  --text-disabled:var(--ink-text-3);
+  --text-blown:#000000;
+  --text-accent:var(--oxblood-2);
+
+  --border-hair:rgba(23,20,15,.10);
+  --border-mid:rgba(23,20,15,.16);
+  --border-strong:var(--ink-text-1);
+  --border-plate:var(--ink-text-1);
+  --border-vellum:rgba(23,20,15,.14);
+  --border-accent:var(--oxblood-1);
+  --border-edge:var(--border-mid);
+
+  --focus-ring:var(--ink-text-2);
+  --selection-bg:#E7C9BE;
+
+  /* semantic — the dark "stamp" pair: Dialog / Toast / Tooltip / primary-button fill stay a
+     solid ink chip regardless of theme, with pale text on top */
+  --surface-solid:var(--ink-0);
+  --text-on-solid:var(--bone-0);
+  --surface-stamp:var(--ink-0);
+  --text-on-stamp:var(--bone-0);
+}

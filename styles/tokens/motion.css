@@ -1,0 +1,39 @@
+/* Beyond Mortals — motion. The SURFACES are rugged; the MOVEMENT is not.
+   Everything that moves does so on a long, smooth, decelerating curve — glass-smooth, no
+   overshoot, no bounce, no elastic. Texture carries the roughness; motion carries the polish. */
+:root{
+  --dur-instant:90ms;/* @kind other */
+  --dur-fast:180ms;/* @kind other */ /* control colour, edge, opacity */
+  --dur-base:340ms;/* @kind other */ /* dialogs, toasts, panels */
+  --dur-slow:620ms;/* @kind other */ /* plate colour return, large fades */
+  --dur-page:780ms;/* @kind other */ /* route and view transitions */
+  --dur-reveal:1100ms;/* @kind other */ /* scroll reveals */
+  --dur-preloader:900ms;/* @kind other */ /* mark fade into the site */
+
+  /* easings — all decelerating, none overshoot */
+  --ease-glide:cubic-bezier(.16,1,.3,1);/* @kind other */ /* default: long smooth settle */
+  --ease-smooth:cubic-bezier(.22,1,.36,1);/* @kind other */ /* controls and small moves */
+  --ease-inout:cubic-bezier(.65,0,.35,1);/* @kind other */ /* symmetrical, for reversible states */
+  --ease-flat:cubic-bezier(.2,0,.1,1);/* @kind other */ /* micro state changes only */
+  --ease-linear:linear;/* @kind other */
+
+  /* stagger — sequential reveals count up in this step */
+  --stagger:70ms;/* @kind other */
+
+  --press-offset:1px;/* @kind spacing */ /* controls shift down-right on :active */
+  --lift-none:none;/* @kind other */ /* nothing lifts, scales or bounces */
+
+  --transition-control:color var(--dur-fast) var(--ease-smooth),background-color var(--dur-fast) var(--ease-smooth),border-color var(--dur-fast) var(--ease-smooth),opacity var(--dur-fast) var(--ease-smooth),transform var(--dur-instant) var(--ease-flat);/* @kind other */
+  --transition-smooth:all var(--dur-base) var(--ease-glide);/* @kind other */
+  --transition-reveal:opacity var(--dur-reveal) var(--ease-glide),transform var(--dur-reveal) var(--ease-glide);/* @kind other */
+  --transition-page:opacity var(--dur-page) var(--ease-glide);/* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+  --dur-fast:0ms;/* @kind other */
+  --dur-base:0ms;/* @kind other */
+  --dur-slow:0ms;/* @kind other */
+  --dur-page:0ms;/* @kind other */
+  --dur-reveal:0ms;/* @kind other */
+  --dur-preloader:0ms;/* @kind other */
+  --stagger:0ms;/* @kind other */
+}}

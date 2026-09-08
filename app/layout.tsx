@@ -1,81 +1,67 @@
-import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import type { Metadata } from "next";
+import { Archivo, Roboto_Mono, Spectral, Special_Elite } from "next/font/google";
+import React from "react";
+import { BagDialog } from "@/components/chrome/BagDialog";
+import { Footer } from "@/components/chrome/Footer";
+import { Header } from "@/components/chrome/Header";
+import { Splash } from "@/components/chrome/Splash";
+import { ToastHost } from "@/components/chrome/ToastHost";
+import { FilmLayer } from "@/components/ui/FilmLayer";
+import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
-import { Film } from "@/components/chrome/Film";
-import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { Preloader } from "@/components/chrome/Preloader";
 
-/**
- * Self-hosted rather than pulled from Google at runtime — one less
- * third-party request, no FOUT dependent on someone else's CDN, and the
- * files are pinned so the type can never shift under us.
- */
-const spectral = localFont({
-  src: [
-    { path: "./fonts/spectral-latin-200-normal.woff2", weight: "200", style: "normal" },
-    { path: "./fonts/spectral-latin-300-normal.woff2", weight: "300", style: "normal" },
-    { path: "./fonts/spectral-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/spectral-latin-400-italic.woff2", weight: "400", style: "italic" },
-  ],
+// Display / record: Spectral, set clean.
+const spectral = Spectral({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
   variable: "--font-spectral",
   display: "swap",
-  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
-const archivo = localFont({
-  src: [
-    { path: "./fonts/archivo-narrow-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/archivo-narrow-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/archivo-narrow-latin-600-normal.woff2", weight: "600", style: "normal" },
-  ],
+// Interface caps (nav, labels, plate codes, wordmark): a typewriter face whose strokes are
+// unevenly inked and slightly broken by design, so the irregularity is in the font itself.
+const specialElite = Special_Elite({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-special-elite",
+  display: "swap",
+});
+
+// Interface prose.
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-archivo",
   display: "swap",
-  fallback: ["Arial Narrow", "Helvetica", "sans-serif"],
 });
 
-const plexMono = localFont({
-  src: [
-    { path: "./fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/ibm-plex-mono-latin-400-italic.woff2", weight: "400", style: "italic" },
-    { path: "./fonts/ibm-plex-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
-  ],
-  variable: "--font-plex-mono",
+// Data / mono.
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-roboto-mono",
   display: "swap",
-  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://beyondmortals.com"),
-  title: {
-    default: "Beyond Mortals",
-    template: "%s · Beyond Mortals",
-  },
-  description:
-    "The record of people the ending stopped coming for. Concept-driven clothing, made in small runs and never restocked.",
-  openGraph: {
-    title: "Beyond Mortals",
-    description: "The record of people the ending stopped coming for.",
-    type: "website",
-  },
-  robots: { index: true, follow: true },
-};
-
-export const viewport: Viewport = {
-  themeColor: "#080807",
-  colorScheme: "dark",
+  title: "Beyond Mortals",
+  description: "Drop 01 — six pieces, printed to order. The record, the catalogue, and the notice.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${spectral.variable} ${archivo.variable} ${plexMono.variable}`}
-    >
-      <body className="bg-page text-primary antialiased">
-        <Preloader />
-        <SmoothScroll />
-        {children}
-        <Film />
+    <html lang="en" className={`${spectral.variable} ${specialElite.variable} ${archivo.variable} ${robotoMono.variable}`}>
+      <body>
+        <CartProvider>
+          <Splash />
+          <Header />
+          {children}
+          <Footer />
+          <BagDialog />
+          <ToastHost />
+          <FilmLayer />
+        </CartProvider>
       </body>
     </html>
   );

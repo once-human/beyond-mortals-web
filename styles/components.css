@@ -1,0 +1,221 @@
+/* Beyond Mortals — component classes. Hairline rules and type only: no filled surfaces,
+   no cards, no shadows, no radius. Grain never lives here — it is the global film layer. */
+
+/* Button — a solid rectangle with a hand-cut edge: the fill is a real rectangle, the border is a
+   displaced pseudo-element (see .bm-edge in film.css), so the shape is clean but the outline
+   isn't machine-straight. Primary and accent are the only filled shapes in the system — this is
+   what carries Buy / Add to bag / Notify. Outline and ghost stay hairline for secondary actions.
+   Labels are set clean, never stamped: a CTA has to read instantly. */
+.bm-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-4);height:var(--control-height);padding:0 var(--control-pad-x);border:1px solid transparent;background:none;color:var(--text-body);font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase;cursor:pointer;transition:var(--transition-control);white-space:nowrap;text-decoration:none;isolation:isolate}
+.bm-btn>*{position:relative;z-index:1}
+.bm-btn:active:not(:disabled){transform:translate(var(--press-offset),var(--press-offset))}
+.bm-btn:disabled{cursor:not-allowed;opacity:.4}
+.bm-btn--sm{height:var(--control-height-sm);padding:0 var(--space-5);font:var(--type-micro);letter-spacing:var(--tracking-micro)}
+.bm-btn--lg{height:var(--control-height-lg);padding:0 var(--space-8)}
+.bm-btn--block{width:100%}
+.bm-btn--primary{color:var(--bone-0);border:0}
+.bm-btn--primary::before{background:var(--ink-0);border:0;z-index:-1}
+.bm-btn--primary:hover:not(:disabled)::before{background:var(--oxblood-2)}
+.bm-btn--outline{border-color:transparent;color:var(--text-secondary)}
+.bm-btn--outline::before{border-color:var(--border-mid)}
+.bm-btn--outline:hover:not(:disabled){color:var(--text-body)}
+.bm-btn--outline:hover:not(:disabled)::before{border-color:var(--oxblood-2)}
+.bm-btn--ghost{color:var(--text-faint);padding:0 var(--space-3);border:0}
+.bm-btn--ghost::before{border-width:0 0 1.5px;border-color:transparent}
+.bm-btn--ghost:hover:not(:disabled){color:var(--text-body)}
+.bm-btn--ghost:hover:not(:disabled)::before{border-color:var(--oxblood-2)}
+.bm-btn--accent{color:var(--bone-0);border:0}
+.bm-btn--accent::before{background:var(--oxblood-1);border:0;z-index:-1}
+.bm-btn--accent:hover:not(:disabled)::before{background:var(--oxblood-2)}
+
+/* IconButton -------------------------------------------------------------- */
+.bm-iconbtn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:var(--control-height);height:var(--control-height);border:1px solid transparent;background:none;color:var(--text-faint);font-family:var(--font-mono);font-size:14px;line-height:1;cursor:pointer;transition:var(--transition-control)}
+.bm-iconbtn:hover:not(:disabled){color:var(--text-body)}
+.bm-iconbtn:active:not(:disabled){transform:translate(var(--press-offset),var(--press-offset))}
+.bm-iconbtn:disabled{color:var(--text-disabled);cursor:not-allowed}
+.bm-iconbtn--bordered:hover:not(:disabled)::before{border-color:var(--oxblood-2)}
+.bm-iconbtn--sm{width:var(--control-height-sm);height:var(--control-height-sm);font-size:11px}
+.bm-iconbtn__count{position:absolute;top:0;right:0;font:var(--type-data);font-size:8px;color:var(--text-accent)}
+
+/* Wordmark — stamped, uneven ---------------------------------------------- */
+.bm-wordmark{display:inline-block;font-family:var(--font-condensed);font-weight:400;letter-spacing:var(--tracking-wordmark);text-transform:uppercase;color:var(--text-body);line-height:1;text-indent:var(--tracking-wordmark);white-space:nowrap;border:0}
+.bm-wordmark:hover{border:0;color:var(--text-body)}
+.bm-wordmark__l{display:inline-block}
+.bm-wordmark__gap{display:inline-block;width:.5em}
+
+/* TextLink ---------------------------------------------------------------- */
+.bm-link{display:inline-flex;align-items:baseline;gap:var(--space-3);color:var(--text-body);text-decoration:none;border-bottom:1px solid var(--border-mid);transition:var(--transition-control)}
+.bm-link:hover{color:var(--text-body);border-bottom-color:var(--border-accent)}
+.bm-link--quiet{border-bottom-color:transparent;color:var(--text-faint)}
+.bm-link--quiet:hover{color:var(--text-body);border-bottom-color:var(--border-accent)}
+.bm-link--label{font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase}
+.bm-link--micro{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase}
+.bm-link--accent{color:var(--text-accent);border-bottom-color:var(--oxblood-1)}
+.bm-link__mark{font-family:var(--font-mono);font-size:.85em;transition:transform var(--dur-fast) var(--ease-flat)}
+.bm-link:hover .bm-link__mark{transform:translateX(2px)}
+
+/* Badge — hairline only --------------------------------------------------- */
+.bm-badge{position:relative;display:inline-flex;align-items:center;gap:var(--space-2);padding:4px var(--space-4) 3px;font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint);background:none}
+.bm-badge--accent{color:var(--text-accent)}
+.bm-badge--accent::before{border-color:var(--oxblood-1)}
+.bm-badge--bare{padding:0}
+.bm-badge--bare::before{display:none}
+.bm-badge__dot{width:3px;height:3px;border-radius:var(--radius-round);background:currentColor}
+
+/* Fields — baseline rules, never boxes ----------------------------------- */
+.bm-field{display:flex;flex-direction:column;gap:var(--space-3)}
+.bm-field__label{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
+.bm-field__note{font:var(--type-data);font-size:10px;letter-spacing:var(--tracking-data);color:var(--text-faint)}
+.bm-field__note--error{color:var(--text-accent)}
+.bm-input{height:var(--control-height);padding:0 0 var(--space-2);background:none;color:var(--text-body);border:0;border-radius:0;font:var(--type-body);font-size:var(--size-body-sm);transition:var(--transition-control);width:100%;box-sizing:border-box}
+.bm-field__rule{height:1px;background:rgba(23,20,15,.22);filter:var(--filter-edge-rough);transition:var(--transition-control)}
+.bm-field:hover .bm-field__rule{background:rgba(23,20,15,.4)}
+.bm-field:focus-within .bm-field__rule{background:var(--ink-0)}
+.bm-field__rule--error{background:var(--oxblood-2)}
+.bm-input::placeholder{color:var(--text-disabled)}
+.bm-input:focus{outline:none}
+.bm-input:disabled{color:var(--text-disabled);cursor:not-allowed}
+
+.bm-input--textarea{height:auto;padding:0 0 var(--space-4);line-height:var(--leading-body);resize:vertical}
+.bm-select{position:relative;display:block}
+.bm-select select{appearance:none;width:100%;height:var(--control-height);padding:0 var(--space-7) var(--space-2) 0;background:none;color:var(--text-body);border:0;border-radius:0;font:var(--type-body);font-size:var(--size-body-sm);cursor:pointer;transition:var(--transition-control)}
+.bm-select select:focus{outline:none}
+.bm-select__mark{position:absolute;right:0;top:calc(50% - 4px);transform:translateY(-50%);pointer-events:none;font-family:var(--font-mono);font-size:9px;color:var(--text-faint)}
+.bm-check{display:inline-flex;align-items:flex-start;gap:var(--space-4);cursor:pointer;font:var(--type-body);font-size:var(--size-body-sm);color:var(--text-secondary)}
+.bm-check input{position:absolute;opacity:0;pointer-events:none}
+.bm-check__box{position:relative;flex:none;width:14px;height:14px;margin-top:3px;border:0;background:none;display:grid;place-items:center;font-family:var(--font-mono);font-size:9px;line-height:1;color:transparent;transition:var(--transition-control)}
+.bm-check__box::before{content:"";position:absolute;inset:0;border:1px solid var(--border-strong);filter:var(--filter-edge-rough);pointer-events:none;transition:var(--transition-control)}
+.bm-check:hover .bm-check__box::before{border-color:var(--ink-text-2)}
+.bm-check input:checked+.bm-check__box{color:var(--text-body)}
+.bm-check input:checked+.bm-check__box::before{border-color:var(--ink-0)}
+.bm-check--radio .bm-check__box::before{border-radius:var(--radius-round);filter:none}
+.bm-check--radio .bm-check__box span{width:5px;height:5px;border-radius:var(--radius-round);background:var(--ink-0);opacity:0;transition:var(--transition-control)}
+.bm-check--radio input:checked+.bm-check__box span{opacity:1}
+.bm-check input:disabled+.bm-check__box::before{border-color:var(--border-hair)}
+
+.bm-switch{display:inline-flex;align-items:center;gap:var(--space-4);cursor:pointer;font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
+.bm-switch input{position:absolute;opacity:0;pointer-events:none}
+.bm-switch__track{width:30px;height:11px;border:0;background:none;position:relative;transition:var(--transition-control)}
+.bm-switch__track::before{content:"";position:absolute;inset:0;border:1px solid var(--border-strong);filter:var(--filter-edge-rough);pointer-events:none;transition:var(--transition-control)}
+.bm-switch__knob{position:absolute;top:1px;left:1px;width:12px;height:7px;background:var(--paper-4);transition:transform var(--dur-fast) var(--ease-flat),background-color var(--dur-fast) var(--ease-flat)}
+.bm-switch input:checked+.bm-switch__track::before{border-color:var(--ink-text-1)}
+.bm-switch input:checked+.bm-switch__track .bm-switch__knob{transform:translateX(16px);background:var(--ink-0)}
+
+/* Plates — the universal image container. Code above, caption below ------- */
+.bm-plate-fig{margin:0;display:flex;flex-direction:column;gap:var(--space-3)}
+.bm-plate__code{display:flex;justify-content:space-between;gap:var(--space-4);font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-secondary)}
+.bm-plate{position:relative;overflow:hidden;background:var(--plate-empty);border:var(--rule-plate);box-shadow:var(--plate-mount);display:grid;place-items:center}
+.bm-plate::before{content:"";position:absolute;inset:0;background-image:var(--vignette-off);z-index:2;pointer-events:none}
+.bm-plate::after{content:"";position:absolute;inset:0;background-image:var(--grain-fine),var(--grain-coarse);background-size:var(--grain-scale),var(--grain-scale-coarse);opacity:var(--grain-opacity-plate);mix-blend-mode:var(--grain-blend);z-index:3;pointer-events:none}
+.bm-plate img{filter:var(--treat-silver);transition:filter var(--dur-slow) var(--ease-flat)}
+.bm-plate--square{aspect-ratio:1}
+.bm-plate--portrait{aspect-ratio:3/4}
+.bm-plate--tall{aspect-ratio:2/3}
+.bm-plate--wide{aspect-ratio:16/9}
+.bm-plate--panorama{aspect-ratio:21/9}
+.bm-plate--deckle{clip-path:var(--clip-deckle-soft);border-color:transparent;box-shadow:none}
+.bm-plate--deckle-hard{clip-path:var(--clip-deckle);border-color:transparent;box-shadow:none}
+.bm-plate--silver img{filter:var(--treat-silver)}
+.bm-plate--silver:hover img{filter:var(--treat-silver-hover)}
+.bm-plate--deep img{filter:var(--treat-deep)}
+.bm-plate--deep:hover img{filter:var(--treat-deep-hover)}
+.bm-plate--blown img{filter:var(--treat-blown)}
+.bm-plate--blown:hover img{filter:var(--treat-blown-hover)}
+.bm-plate__empty{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--bone-4);text-align:center;padding:var(--space-6);position:relative;z-index:1;max-width:24ch}
+.bm-plate__hatch{position:absolute;inset:0;background-image:var(--hatch-45)}
+.bm-plate-caption{display:flex;gap:var(--space-4);align-items:baseline;font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
+.bm-plate--loading .bm-plate__empty{animation:bm-expose 1.6s steps(2,end) infinite alternate}
+@keyframes bm-expose{from{opacity:.35}to{opacity:.8}}
+
+/* Vellum sheet — translucency, never blur. Grain comes from the film layer */
+.bm-sheet{position:relative;background:var(--vellum-fill);border:0;padding:var(--space-7)}
+.bm-sheet::before{content:"";position:absolute;inset:0;border:1px solid var(--border-vellum);filter:var(--filter-edge-frayed);pointer-events:none;z-index:2}
+.bm-sheet::after{content:"";position:absolute;inset:0;background-image:var(--grain-fine);background-size:var(--grain-scale);opacity:var(--grain-opacity-sheet);mix-blend-mode:var(--grain-blend);pointer-events:none}
+.bm-sheet>*{position:relative;z-index:1}
+.bm-sheet--strong{background:var(--vellum-fill-strong)}
+.bm-sheet--off{transform:rotate(var(--vellum-skew))}
+/* A sheet laid over a (always-dark) photo plate instead of the paper page — e.g. the Notice
+   quote panel — needs the original light-on-dark vellum treatment, not the page's dark-on-light
+   one, so it reads against the photo it's sitting on rather than disappearing into it. */
+.bm-sheet--on-image{
+  --surface-vellum:rgba(230,225,214,.09);
+  --surface-vellum-strong:rgba(230,225,214,.15);
+  --border-vellum:rgba(230,225,214,.22);
+  --text-body:var(--text-on-stamp);
+  --text-secondary:var(--paper-2);
+  --text-faint:var(--paper-3);
+}
+
+/* Commerce ---------------------------------------------------------------- */
+.bm-product{display:flex;flex-direction:column;gap:var(--space-5);text-decoration:none;color:inherit;border:0}
+.bm-product__name{font:var(--weight-regular) var(--size-display-4)/1.06 var(--font-display);letter-spacing:var(--tracking-display);color:var(--text-body);transition:var(--transition-control)}
+.bm-product--minor .bm-product__name{font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-secondary)}
+.bm-product--lead .bm-product__name{font-size:var(--size-display-3)}
+.bm-product__row{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-5)}
+.bm-product__price{font:var(--type-data);font-size:11px;color:var(--text-faint);white-space:nowrap}
+.bm-product__meta{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
+.bm-product:hover .bm-product__name{color:var(--text-blown)}
+.bm-product:hover .bm-plate{border-color:var(--ink-text-1)}
+.bm-sizes{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.bm-size{position:relative;min-width:40px;height:var(--control-height);padding:0 var(--space-4);border:0;background:none;color:var(--text-faint);font:var(--type-data);font-size:11px;cursor:pointer;transition:var(--transition-control)}
+.bm-size::before{content:"";position:absolute;inset:0;border:1px solid var(--border-edge);filter:var(--filter-edge-rough);pointer-events:none;transition:var(--transition-control)}
+.bm-size:hover:not(:disabled){color:var(--text-body)}
+.bm-size:hover:not(:disabled)::before{border-color:var(--border-strong)}
+.bm-size[aria-pressed="true"]{color:var(--text-body)}
+.bm-size[aria-pressed="true"]::before{border-color:var(--ink-0)}
+.bm-size[aria-pressed="true"]::after{content:"";position:absolute;left:2px;right:2px;bottom:-3px;height:1px;background:var(--oxblood-2);filter:var(--filter-rule-wobble)}
+.bm-cartline{display:grid;grid-template-columns:52px 1fr auto;gap:var(--space-5);padding:var(--space-5) 0;align-items:start;border:0;position:relative}
+.bm-cartline::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(230,225,214,.13);filter:var(--filter-rule-wobble)}
+.bm-cartline__body{display:flex;flex-direction:column;gap:var(--space-2)}
+.bm-cartline__qty{display:flex;align-items:center;gap:var(--space-3);font:var(--type-data);font-size:11px;color:var(--text-faint);margin-top:var(--space-2)}
+
+/* Editorial --------------------------------------------------------------- */
+.bm-rule{display:flex;align-items:center;gap:var(--space-6);margin:var(--stack-section) 0}
+.bm-rule__line{flex:1;height:1px;background:rgba(23,20,15,.24);filter:var(--filter-rule-wobble)}
+.bm-rule__line--faint{background:rgba(23,20,15,.12)}
+.bm-rule__label{font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint);white-space:nowrap}
+.bm-rule--plain{margin:var(--space-8) 0}
+.bm-rule--oxide .bm-rule__line{background:var(--oxblood-2)}
+.bm-rule--oxide .bm-rule__label{color:var(--text-accent)}
+.bm-annot{position:relative;font:var(--type-data);font-size:10px;line-height:1.7;letter-spacing:var(--tracking-data);color:var(--text-faint);max-width:var(--measure-note);padding-left:var(--space-5)}
+.bm-annot::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:1px;background:var(--border-mid)}
+.bm-annot__ref{display:block;color:var(--text-secondary);margin-bottom:var(--space-2)}
+.bm-annot--marker::before{background:var(--oxblood-1)}
+.bm-annot--marker .bm-annot__ref{color:var(--text-accent)}
+.bm-quote{margin:var(--stack-section) 0;max-width:var(--measure-record)}
+.bm-quote__text{font:var(--weight-light) var(--size-display-3)/1.18 var(--font-display);font-style:italic;letter-spacing:var(--tracking-display);color:var(--text-body);margin:0}
+.bm-quote__source{display:block;margin-top:var(--space-6);font:var(--type-micro);letter-spacing:var(--tracking-micro);text-transform:uppercase;color:var(--text-faint)}
+
+/* Feedback — frames, not panels ------------------------------------------ */
+/* These three stay dark ink chips on the paper page (a stamp/ticket motif), so every semantic
+   text/border token is locally re-pointed to its "on-ink" counterpart — every descendant that
+   reads var(--text-body) etc. (Dialog title/body, Toast, Tooltip, IconButton, CartLine) then
+   resolves correctly without needing its own light/dark variant. */
+.bm-dialog,.bm-toast,.bm-tip__bubble{
+  --text-body:var(--text-on-stamp);
+  --text-secondary:var(--paper-2);
+  --text-faint:var(--paper-3);
+  --text-disabled:var(--paper-4);
+  --border-hair:rgba(230,225,214,.14);
+  --border-mid:rgba(230,225,214,.24);
+  --border-strong:var(--paper-1);
+  --border-edge:rgba(230,225,214,.24);
+  color:var(--text-on-stamp);
+}
+.bm-scrim{position:fixed;inset:0;background:var(--scrim-flat);display:grid;place-items:center;padding:var(--gutter-page);z-index:60}
+.bm-dialog{width:100%;max-width:var(--container-narrow);background:var(--ink-0);border:0;padding:var(--space-7);position:relative}
+.bm-dialog::before{content:"";position:absolute;inset:0;border:1px solid var(--bone-3);filter:var(--filter-edge-rough);pointer-events:none}
+.bm-dialog__head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-5);margin-bottom:var(--space-6)}
+.bm-dialog__title{font:var(--weight-regular) var(--size-display-4)/1.06 var(--font-display);letter-spacing:var(--tracking-display);margin:0;color:var(--text-body)}
+.bm-dialog__body{font:var(--type-body);font-size:var(--size-body-sm);color:var(--text-secondary);line-height:var(--leading-body)}
+.bm-dialog__foot{display:flex;gap:var(--space-4);margin-top:var(--space-7);justify-content:flex-end}
+.bm-toast{position:relative;display:flex;align-items:center;gap:var(--space-5);padding:var(--space-4) var(--space-5);background:var(--ink-0);border:0;color:var(--text-body);min-width:240px}
+.bm-toast::before{content:"";position:absolute;inset:0;border:1px solid var(--bone-3);filter:var(--filter-edge-rough);pointer-events:none}
+.bm-toast__text{flex:1;font:var(--type-label);letter-spacing:var(--tracking-label);text-transform:uppercase}
+.bm-toast--marker{color:var(--text-accent)}
+.bm-toast--marker::before{border-color:var(--oxblood-1)}
+.bm-toast__close{background:none;border:0;color:inherit;cursor:pointer;font-family:var(--font-mono);font-size:12px;opacity:.6}
+.bm-toast__close:hover{opacity:1}
+.bm-tip{position:relative;display:inline-flex}
+.bm-tip__bubble{position:absolute;bottom:calc(100% + var(--space-3));left:50%;transform:translateX(-50%);background:var(--ink-0);color:var(--text-body);border:1px solid var(--border-mid);padding:var(--space-2) var(--space-4);font:var(--type-data);font-size:10px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--dur-fast) var(--ease-flat);z-index:20}
+.bm-tip:hover .bm-tip__bubble,.bm-tip:focus-within .bm-tip__bubble{opacity:1}

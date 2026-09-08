@@ -1,31 +1,32 @@
-import Link from "next/link";
-import { Wordmark } from "@/components/brand/Wordmark";
+import React from "react";
+import { ImagePlate } from "@/components/ui/ImagePlate";
+import { Stamped } from "@/components/ui/Stamped";
+import { TextLink } from "@/components/ui/TextLink";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-      <div className="relative h-[190px] w-[280px] border border-dashed border-rule-faint">
-        <span className="absolute left-1/2 top-1/2 h-px w-[100px] -translate-x-1/2 bg-rule-faint" />
+    <main style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-10) var(--gutter-page)" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", alignItems: "start" }}>
+        <div style={{ gridColumn: "1 / span 5" }}>
+          <ImagePlate ratio="square" plate="MISSING" note="No entry at this address" state="empty" />
+        </div>
+        <div style={{ gridColumn: "7 / span 5", marginTop: "var(--space-9)" }}>
+          <Stamped className="bm-micro" as="div" amount={1}>
+            Not filed
+          </Stamped>
+          <h1 style={{ font: "var(--weight-regular) var(--size-display-3)/1.06 var(--font-display)", letterSpacing: "var(--tracking-display)", margin: "var(--space-6) 0 0" }}>
+            No account of this page.
+          </h1>
+          <p style={{ font: "var(--type-body)", fontSize: "var(--size-body-sm)", color: "var(--text-secondary)", maxWidth: "40ch", marginTop: "var(--space-6)" }}>
+            Whatever was at this address isn&rsquo;t in the record.
+          </p>
+          <div style={{ marginTop: "var(--space-7)" }}>
+            <TextLink micro mark="→" href="/">
+              Home
+            </TextLink>
+          </div>
+        </div>
       </div>
-
-      <span className="t-plate mt-9 text-accent">PLATE — MISSING</span>
-      <h1 className="t-display-l mt-5 text-bright">Not in the record.</h1>
-      <p className="t-record-body mt-5 max-w-[52ch] text-secondary">
-        This page is not an entry. It may have been removed, it may never have existed,
-        and the record does not distinguish between the two.
-      </p>
-
-      <Link
-        href="/"
-        className="mt-11 flex items-center gap-4 border border-rule px-7 py-[18px] text-primary transition-colors duration-500 hover:border-rule-bone hover:text-bright"
-      >
-        <span className="t-button">Return to the record</span>
-        <span className="t-button">→</span>
-      </Link>
-
-      <span className="mt-20 text-faint">
-        <Wordmark width={150} />
-      </span>
     </main>
   );
 }

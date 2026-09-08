@@ -1,0 +1,80 @@
+/* Beyond Mortals — FILM. Grain belongs to the PHOTOGRAPHY, not to the interface.
+   It is applied only to image plates (and the vellum sheet), never as a page-wide overlay and
+   never animated — a moving full-screen grain reads as CRT noise, which this brand is not.
+   Interface chrome stays clean: crisp small caps on near-black. */
+:root{
+  /* --- grain: plate-scoped, static ---------------------------------------- */
+  --grain-fine:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='300' height='300' filter='url(%23g)'/></svg>");/* @kind other */
+  --grain-coarse:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='linear' slope='1.3' intercept='-0.2'/></feComponentTransfer></filter><rect width='520' height='520' filter='url(%23g)'/></svg>");/* @kind other */
+  --grain-opacity-plate:0.13;/* @kind other */ /* grain inside an image plate */
+  --grain-opacity-coarse:0.05;/* @kind other */ /* second, sparser pass over a plate */
+  --grain-opacity-sheet:0.09;/* @kind other */ /* vellum paper tooth */
+  --grain-scale:300px;/* @kind spacing */
+  --grain-scale-coarse:520px;/* @kind spacing */
+  --grain-blend:overlay;/* @kind other */
+
+  /* --- halation: warm bloom off bright type against dark ground ------------ */
+  --halation-display:0 0 12px rgba(255,238,214,.14);/* @kind shadow */ /* rare: light sources only */
+  --halation-soft:0 0 8px rgba(255,240,220,.09);/* @kind shadow */
+  --halation-blown:0 0 6px rgba(255,255,255,.5),0 0 22px rgba(255,236,208,.3),0 0 60px rgba(255,198,140,.14);/* @kind shadow */
+
+  /* --- tone: crushed shadows, clipped highlights, applied to plates -------- */
+  --tone-crush:grayscale(1) contrast(1.42) brightness(0.86);/* @kind other */
+  --treat-silver:grayscale(1) contrast(1.55) brightness(0.94);/* @kind other */ /* silver gelatin */
+  --treat-deep:grayscale(1) contrast(1.9) brightness(0.74);/* @kind other */ /* deep blacks */
+  --treat-blown:grayscale(1) contrast(1.38) brightness(1.16);/* @kind other */ /* clipped whites */
+  --treat-silver-hover:grayscale(0.28) contrast(1.4) brightness(0.98);/* @kind other */ /* ~70% colour on hover */
+  --treat-deep-hover:grayscale(0.28) contrast(1.7) brightness(0.82);/* @kind other */
+  --treat-blown-hover:grayscale(0.28) contrast(1.25) brightness(1.1);/* @kind other */
+
+  /* --- vignette: inside the plate, uneven and off-centre ------------------- */
+  --vignette-off:radial-gradient(124% 104% at 40% 28%,rgba(0,0,0,0) 38%,rgba(0,0,0,.46) 100%),radial-gradient(96% 124% at 80% 86%,rgba(0,0,0,0) 46%,rgba(0,0,0,.34) 100%);/* @kind other */
+
+  /* --- hand-cut edges: turbulence displacement on BORDERS AND RULES ONLY --- */
+  --filter-edge-rough:url(#bm-edge-rough);/* @kind other */ /* hand-drawn rules and frames */
+  --filter-edge-frayed:url(#bm-edge-frayed);/* @kind other */ /* cut-and-frayed borders */
+  --filter-rule-wobble:url(#bm-rule-wobble);/* @kind other */ /* hairline rules: gentle, or the line breaks into strands */
+
+  /* --- tag: a cut corner, like a swing tag or a hand-trimmed label. Fixed, not filtered ---- */
+  --clip-tag:polygon(0 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%);/* @kind other */
+  --clip-tag-sm:polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);/* @kind other */
+  --clip-tag-lg:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);/* @kind other */
+
+  /* --- deckle: a torn/hand-cut sheet edge. Irregular by hand, not by formula - */
+  --clip-deckle:polygon(0.4% 1.2%,7% 0.3%,14% 1.6%,23% 0.4%,31% 1.9%,39% 0.6%,48% 1.4%,57% 0.2%,66% 1.7%,74% 0.5%,83% 1.5%,91% 0.4%,99.6% 1.3%,99.2% 9%,100% 18%,98.9% 27%,99.8% 37%,99% 47%,99.7% 58%,98.8% 68%,99.6% 79%,99.1% 89%,99.5% 98.7%,92% 99.6%,84% 98.3%,75% 99.7%,66% 98.4%,57% 99.6%,48% 98.5%,39% 99.7%,30% 98.4%,21% 99.6%,12% 98.5%,3% 99.7%,0.5% 91%,1.3% 81%,0.3% 71%,1.1% 61%,0.2% 50%,1.2% 40%,0.3% 30%,1.1% 20%,0.4% 10%);/* @kind other */
+  --clip-deckle-soft:polygon(0.3% 0.8%,12% 0.2%,26% 1.1%,41% 0.3%,56% 1%,72% 0.2%,88% 0.9%,99.7% 0.4%,99.3% 14%,99.9% 30%,99.2% 46%,99.8% 62%,99.3% 78%,99.7% 99.2%,86% 99.7%,70% 98.9%,54% 99.8%,38% 99%,22% 99.7%,6% 99%,0.4% 99.6%,0.9% 82%,0.2% 65%,1% 48%,0.3% 31%,0.8% 15%);/* @kind other */
+
+  /* --- rules: printed, uneven weight, occasional break -------------------- */
+  --rule-print:repeating-linear-gradient(90deg,rgba(23,20,15,.24) 0 41px,rgba(23,20,15,.09) 41px 47px,rgba(23,20,15,.28) 47px 118px,rgba(23,20,15,.04) 118px 123px,rgba(23,20,15,.19) 123px 196px,rgba(23,20,15,0) 196px 199px);/* @kind other */
+  --rule-print-faint:repeating-linear-gradient(90deg,rgba(23,20,15,.12) 0 63px,rgba(23,20,15,.04) 63px 71px,rgba(23,20,15,.15) 71px 152px,rgba(23,20,15,0) 152px 156px);/* @kind other */
+  --rule-print-accent:repeating-linear-gradient(90deg,rgba(138,59,43,.9) 0 54px,rgba(138,59,43,.3) 54px 60px,rgba(138,59,43,.72) 60px 141px,rgba(138,59,43,.12) 141px 147px);/* @kind other */
+
+  --hatch-45:repeating-linear-gradient(45deg,transparent 0 9px,rgba(230,225,214,.04) 9px 10px);/* @kind other */
+}
+/* type treatments */
+.bm-halation{text-shadow:var(--halation-display)}
+.bm-halation--soft{text-shadow:var(--halation-soft)}
+.bm-blown{color:var(--text-blown);text-shadow:var(--halation-blown)}
+/* stamped interface caps — per-letter irregularity, set by <Stamped/> */
+.bm-stamped{display:inline-block;white-space:nowrap}
+.bm-stamped__l{display:inline-block}
+.bm-stamped__gap{display:inline-block;width:.42em}
+
+/* hand-cut edges. The element itself carries no border; this pseudo does, displaced. */
+.bm-edge{position:relative}
+.bm-edge::before{content:"";position:absolute;inset:0;border:1px solid var(--border-edge);filter:var(--filter-edge-rough);pointer-events:none}
+.bm-edge--frayed::before{filter:var(--filter-edge-frayed)}
+.bm-edge--top::before{border-width:1px 0 0}
+.bm-edge--bottom::before{border-width:0 0 1px}
+.bm-deckle{clip-path:var(--clip-deckle)}
+.bm-deckle--soft{clip-path:var(--clip-deckle-soft)}
+/* hand-drawn rule: one displaced hairline, never a mechanical gradient */
+.bm-hand-rule{height:1px;background:rgba(23,20,15,.24);filter:var(--filter-rule-wobble)}
+.bm-hand-rule--faint{background:rgba(23,20,15,.13)}
+.bm-hand-rule--accent{background:var(--oxblood-2)}
+
+/* static plate-strength grain on a non-image container, e.g. the footer. Same tokens as the
+   plate grain, same rule: static, never animated, never page-wide. */
+.bm-noise{position:relative}
+.bm-noise::after{content:"";position:absolute;inset:0;background-image:var(--grain-fine),var(--grain-coarse);background-size:var(--grain-scale),var(--grain-scale-coarse);opacity:var(--grain-opacity-plate);mix-blend-mode:var(--grain-blend);pointer-events:none}
+.bm-noise>*{position:relative;z-index:1}
