@@ -1,10 +1,9 @@
 /* Beyond Mortals — webfonts. No brand font files were supplied (Doc 1 §9).
    Display / record: Spectral, set clean.
-   Interface caps (nav, labels, plate codes, wordmark): Special Elite — a typewriter face whose
-   strokes are unevenly inked and slightly broken by design, so the irregularity is in the font
-   rather than in a filter.
+   Interface caps (nav, labels, plate codes, wordmark): Space Grotesk — a clean, geometric
+   industrial grotesk, set with tight tracking instead of a stamped/handwritten register.
    Data: Roboto Mono. Interface prose: Archivo.
 
    Loaded via next/font/google in app/layout.tsx (self-hosted, no render-blocking @import) —
-   see the --font-spectral / --font-special-elite / --font-archivo / --font-roboto-mono
+   see the --font-spectral / --font-grotesk / --font-archivo / --font-roboto-mono
    variables it sets on <html>, referenced from typography.css. */

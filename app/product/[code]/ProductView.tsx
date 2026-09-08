@@ -58,7 +58,7 @@ export function ProductView({ product }: { product: Product }) {
               <Stamped className="bm-micro" as="div" amount={1}>
                 Specification
               </Stamped>
-              <div className="bm-data" style={{ fontSize: "11px", lineHeight: 2, marginTop: "var(--space-4)", color: "var(--text-secondary)" }}>
+              <div className="bm-data" style={{ fontSize: "15px", lineHeight: 2, marginTop: "var(--space-4)", color: "var(--text-secondary)" }}>
                 <div>CLOTH · {p.meta.split(" · ")[0].toUpperCase()}</div>
                 <div>FIT · BOXY, SHORT SLEEVE</div>
                 <div>PRINT · WATER-BASED, HAND-PULLED</div>
@@ -95,7 +95,7 @@ export function ProductView({ product }: { product: Product }) {
       </div>
       <Dialog open={guide} title="Size guide" onClose={() => setGuide(false)} footer={<Button variant="outline" size="sm" onClick={() => setGuide(false)}>Close</Button>}>
         <p style={{ margin: "0 0 var(--space-5)" }}>Measurements are taken flat, in centimetres. Fit is boxy through the body and short in the sleeve.</p>
-        <table style={{ width: "100%", borderCollapse: "collapse", font: "var(--type-data)", fontSize: "11px" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", font: "var(--type-data)", fontSize: "15px" }}>
           <tbody>
             <tr>
               <td className="bm-micro" style={{ padding: "var(--space-3) 0" }}>

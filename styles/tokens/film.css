@@ -71,7 +71,7 @@
 /* hand-drawn rule: one displaced hairline, never a mechanical gradient */
 .bm-hand-rule{height:1px;background:rgba(23,20,15,.24);filter:var(--filter-rule-wobble)}
 .bm-hand-rule--faint{background:rgba(23,20,15,.13)}
-.bm-hand-rule--accent{background:var(--oxblood-2)}
+.bm-hand-rule--accent{background:var(--accent-2)}
 
 /* static plate-strength grain on a non-image container, e.g. the footer. Same tokens as the
    plate grain, same rule: static, never animated, never page-wide. */

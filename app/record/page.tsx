@@ -66,7 +66,7 @@ export default function Record() {
             <Stamped className="bm-micro" as="div" amount={1}>
               Filing state
             </Stamped>
-            <div className="bm-data" style={{ fontSize: "11px", color: "var(--text-faint)", lineHeight: 2, marginTop: "var(--space-4)" }}>
+            <div className="bm-data" style={{ fontSize: "15px", color: "var(--text-faint)", lineHeight: 2, marginTop: "var(--space-4)" }}>
               <div>ACCOUNTS · 9</div>
               <div>AGREEMENT · NONE</div>
               <div>ORIGIN · UNEXPLAINED</div>

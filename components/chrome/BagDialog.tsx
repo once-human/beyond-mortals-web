@@ -44,7 +44,7 @@ export function BagDialog() {
           </div>
         </>
       ) : (
-        <span className="bm-data" style={{ fontSize: "11px", color: "var(--text-faint)" }}>
+        <span className="bm-data" style={{ fontSize: "15px", color: "var(--text-faint)" }}>
           NOTHING IN THE BAG.
         </span>
       )}

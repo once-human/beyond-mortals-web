@@ -4,7 +4,7 @@
 :root{
   --font-display:var(--font-spectral),Georgia,"Times New Roman",serif;
   --font-body:var(--font-archivo),"Helvetica Neue",Arial,sans-serif;
-  --font-condensed:var(--font-special-elite),"Courier New",monospace;/* interface caps — the stamped face */
+  --font-condensed:var(--font-grotesk),"Arial Narrow",sans-serif;/* interface caps — clean industrial grotesk */
   --font-mono:var(--font-roboto-mono),ui-monospace,"Courier New",monospace;
 
   --weight-light:300;/* @kind font */
@@ -16,17 +16,17 @@
   /* display */
   --size-display-1:168px;
   --size-display-2:104px;
-  --size-display-3:56px;
-  --size-display-4:30px;
+  --size-display-3:58px;
+  --size-display-4:37px;
 
   /* reading — the record, and nothing else lives here */
-  --size-lede:19px;
-  --size-body:15px;
-  --size-body-sm:13px;
+  --size-lede:21px;
+  --size-body:18px;
+  --size-body-sm:16px;
 
-  /* interface — small and dense, Yohji register */
-  --size-label:10px;
-  --size-micro:8px;
+  /* interface — dense but legible, industrial register */
+  --size-label:15px;
+  --size-micro:13px;
 
   --leading-tight:0.94;/* @kind font */
   --leading-display:1.02;/* @kind font */
@@ -36,10 +36,10 @@
 
   --tracking-display:-0.03em;/* @kind font */
   --tracking-body:0;/* @kind font */
-  --tracking-label:0.24em;/* @kind font */
-  --tracking-micro:0.34em;/* @kind font */
+  --tracking-label:0.1em;/* @kind font */
+  --tracking-micro:0.14em;/* @kind font */
   --tracking-data:0.06em;/* @kind font */
-  --tracking-wordmark:0.3em;/* @kind font */
+  --tracking-wordmark:0.14em;/* @kind font */
 
   --measure-record:60ch;/* @kind other */
   --measure-note:38ch;/* @kind other */
@@ -47,7 +47,7 @@
   --type-record:var(--weight-regular) var(--size-lede)/var(--leading-lede) var(--font-display);/* @kind font */
   --type-title:var(--weight-regular) var(--size-display-2)/var(--leading-display) var(--font-display);/* @kind font */
   --type-body:var(--weight-regular) var(--size-body)/var(--leading-body) var(--font-body);/* @kind font */
-  --type-label:var(--weight-regular) var(--size-label)/1.25 var(--font-condensed);/* @kind font */
-  --type-micro:var(--weight-regular) var(--size-micro)/1.25 var(--font-condensed);/* @kind font */
+  --type-label:var(--weight-medium) var(--size-label)/1.25 var(--font-condensed);/* @kind font */
+  --type-micro:var(--weight-medium) var(--size-micro)/1.25 var(--font-condensed);/* @kind font */
   --type-data:var(--weight-regular) var(--size-body-sm)/var(--leading-data) var(--font-mono);/* @kind font */
 }

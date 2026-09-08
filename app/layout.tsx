@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Roboto_Mono, Spectral, Special_Elite } from "next/font/google";
+import { Archivo, Roboto_Mono, Space_Grotesk, Spectral } from "next/font/google";
 import React from "react";
 import { BagDialog } from "@/components/chrome/BagDialog";
 import { Footer } from "@/components/chrome/Footer";
@@ -19,12 +19,11 @@ const spectral = Spectral({
   display: "swap",
 });
 
-// Interface caps (nav, labels, plate codes, wordmark): a typewriter face whose strokes are
-// unevenly inked and slightly broken by design, so the irregularity is in the font itself.
-const specialElite = Special_Elite({
+// Interface caps (nav, labels, plate codes, wordmark): a clean industrial grotesk.
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-special-elite",
+  weight: ["500", "600", "700"],
+  variable: "--font-grotesk",
   display: "swap",
 });
 
@@ -51,7 +50,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spectral.variable} ${specialElite.variable} ${archivo.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${spectral.variable} ${spaceGrotesk.variable} ${archivo.variable} ${robotoMono.variable}`}>
       <body>
         <CartProvider>
           <Splash />

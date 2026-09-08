@@ -1,5 +1,5 @@
 /* Beyond Mortals — colour. Light, archival: warm paper ground, crushed-ink type.
-   One accent: OXBLOOD — dried blood, desaturated and brown, never fire-engine red.
+   One accent: a saturated cobalt blue, lifted from the brand's on-body reference shirt.
    Crimson exists as a single token for exactly one element sitewide.
    ink-* and bone-* keep their original dark-theme values unchanged — they are reused here for
    the "stamp" surfaces (Dialog, Toast, Tooltip, the plate mount/void, primary button fill) that
@@ -35,10 +35,13 @@
   --ink-text-2:#5B5344;
   --ink-text-3:#8A8065;
 
-  /* oxblood — the only accent. Unchanged: reads correctly against both paper and the ink stamps */
-  --oxblood-0:#4E1C16;
-  --oxblood-1:#6B2A1F;
-  --oxblood-2:#8A3B2B;
+  /* accent — the only accent colour. Cobalt blue, lifted from the shirt reference, pulled deeper
+     and less saturated than a screen-bright royal blue so it reads as ink rather than pixel:
+     deep navy base, muted indigo-blue for text/borders/default fills, a modestly richer step up
+     for hover/emphasis. Reads correctly against both paper and the ink stamps */
+  --accent-0:#131A3E;
+  --accent-1:#2B3B7E;
+  --accent-2:#34459C;
 
   /* crimson — one element sitewide, nothing else. Currently unused */
   --crimson:#B41F16;
@@ -55,18 +58,18 @@
   --text-faint:var(--ink-text-2);
   --text-disabled:var(--ink-text-3);
   --text-blown:#000000;
-  --text-accent:var(--oxblood-2);
+  --text-accent:var(--accent-1);
 
   --border-hair:rgba(23,20,15,.10);
   --border-mid:rgba(23,20,15,.16);
   --border-strong:var(--ink-text-1);
   --border-plate:var(--ink-text-1);
   --border-vellum:rgba(23,20,15,.14);
-  --border-accent:var(--oxblood-1);
+  --border-accent:var(--accent-1);
   --border-edge:var(--border-mid);
 
   --focus-ring:var(--ink-text-2);
-  --selection-bg:#E7C9BE;
+  --selection-bg:#D2D6E9;
 
   /* semantic — the dark "stamp" pair: Dialog / Toast / Tooltip / primary-button fill stay a
      solid ink chip regardless of theme, with pale text on top */
