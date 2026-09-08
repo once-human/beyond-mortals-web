@@ -1,4 +1,6 @@
-/* Beyond Mortals — colour. Light, archival: warm paper ground, crushed-ink type.
+/* Beyond Mortals — colour. Light, archival: neutral cool-grey paper ground, crushed-ink type.
+   Deliberately not warm — the accent is a cobalt blue, and a warm cream ground fought it, so the
+   whole neutral ramp is tuned cool/grey instead to sit quietly behind it.
    One accent: a saturated cobalt blue, lifted from the brand's on-body reference shirt.
    Crimson exists as a single token for exactly one element sitewide.
    ink-* and bone-* keep their original dark-theme values unchanged — they are reused here for
@@ -21,19 +23,19 @@
   --bone-3:#615D56;
   --bone-4:#3D3A35;
 
-  /* paper — the page ground. Warm, slightly uneven, never stark white */
-  --paper-0:#FBF8F1;
-  --paper-1:#F1ECDE;
-  --paper-2:#E6DEC8;
-  --paper-3:#D6CAAA;
-  --paper-4:#B9AC8B;
+  /* paper — the page ground. Neutral, cool-leaning grey, slightly uneven, never stark white */
+  --paper-0:#F7F7F8;
+  --paper-1:#ECEDEF;
+  --paper-2:#DBDDE1;
+  --paper-3:#C0C5CE;
+  --paper-4:#929AAA;
 
   /* ink-text — body copy on paper. A genuine light-mode hierarchy, distinct from the ink-* ramp
      above (which barely varies — it exists to read as "black", not to step down in weight) */
-  --ink-text-0:#17140F;
-  --ink-text-1:#2C2820;
-  --ink-text-2:#5B5344;
-  --ink-text-3:#8A8065;
+  --ink-text-0:#14161B;
+  --ink-text-1:#272C35;
+  --ink-text-2:#535C6E;
+  --ink-text-3:#8790A1;
 
   /* accent — the only accent colour. Cobalt blue, lifted from the shirt reference: deep navy
      base, true mid blue, brighter blue for hover/emphasis. Reads correctly against both paper
@@ -49,8 +51,8 @@
   --surface-page:var(--paper-0);
   --surface-deep:var(--paper-2);
   --surface-raised:var(--paper-1);
-  --surface-vellum:rgba(23,20,15,.045);
-  --surface-vellum-strong:rgba(23,20,15,.08);
+  --surface-vellum:rgba(20,22,27,.045);
+  --surface-vellum-strong:rgba(20,22,27,.08);
 
   --text-body:var(--ink-text-0);
   --text-secondary:var(--ink-text-1);
@@ -59,11 +61,11 @@
   --text-blown:#000000;
   --text-accent:var(--accent-2);
 
-  --border-hair:rgba(23,20,15,.10);
-  --border-mid:rgba(23,20,15,.16);
+  --border-hair:rgba(20,22,27,.10);
+  --border-mid:rgba(20,22,27,.16);
   --border-strong:var(--ink-text-1);
   --border-plate:var(--ink-text-1);
-  --border-vellum:rgba(23,20,15,.14);
+  --border-vellum:rgba(20,22,27,.14);
   --border-accent:var(--accent-1);
   --border-edge:var(--border-mid);
 

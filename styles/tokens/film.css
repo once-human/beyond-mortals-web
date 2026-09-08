@@ -45,9 +45,9 @@
   --clip-deckle-soft:polygon(0.3% 0.8%,12% 0.2%,26% 1.1%,41% 0.3%,56% 1%,72% 0.2%,88% 0.9%,99.7% 0.4%,99.3% 14%,99.9% 30%,99.2% 46%,99.8% 62%,99.3% 78%,99.7% 99.2%,86% 99.7%,70% 98.9%,54% 99.8%,38% 99%,22% 99.7%,6% 99%,0.4% 99.6%,0.9% 82%,0.2% 65%,1% 48%,0.3% 31%,0.8% 15%);/* @kind other */
 
   /* --- rules: printed, uneven weight, occasional break -------------------- */
-  --rule-print:repeating-linear-gradient(90deg,rgba(23,20,15,.24) 0 41px,rgba(23,20,15,.09) 41px 47px,rgba(23,20,15,.28) 47px 118px,rgba(23,20,15,.04) 118px 123px,rgba(23,20,15,.19) 123px 196px,rgba(23,20,15,0) 196px 199px);/* @kind other */
-  --rule-print-faint:repeating-linear-gradient(90deg,rgba(23,20,15,.12) 0 63px,rgba(23,20,15,.04) 63px 71px,rgba(23,20,15,.15) 71px 152px,rgba(23,20,15,0) 152px 156px);/* @kind other */
-  --rule-print-accent:repeating-linear-gradient(90deg,rgba(138,59,43,.9) 0 54px,rgba(138,59,43,.3) 54px 60px,rgba(138,59,43,.72) 60px 141px,rgba(138,59,43,.12) 141px 147px);/* @kind other */
+  --rule-print:repeating-linear-gradient(90deg,rgba(20,22,27,.24) 0 41px,rgba(20,22,27,.09) 41px 47px,rgba(20,22,27,.28) 47px 118px,rgba(20,22,27,.04) 118px 123px,rgba(20,22,27,.19) 123px 196px,rgba(20,22,27,0) 196px 199px);/* @kind other */
+  --rule-print-faint:repeating-linear-gradient(90deg,rgba(20,22,27,.12) 0 63px,rgba(20,22,27,.04) 63px 71px,rgba(20,22,27,.15) 71px 152px,rgba(20,22,27,0) 152px 156px);/* @kind other */
+  --rule-print-accent:repeating-linear-gradient(90deg,rgba(38,71,196,.9) 0 54px,rgba(38,71,196,.3) 54px 60px,rgba(38,71,196,.72) 60px 141px,rgba(38,71,196,.12) 141px 147px);/* @kind other */
 
   --hatch-45:repeating-linear-gradient(45deg,transparent 0 9px,rgba(230,225,214,.04) 9px 10px);/* @kind other */
 }
@@ -69,8 +69,8 @@
 .bm-deckle{clip-path:var(--clip-deckle)}
 .bm-deckle--soft{clip-path:var(--clip-deckle-soft)}
 /* hand-drawn rule: one displaced hairline, never a mechanical gradient */
-.bm-hand-rule{height:1px;background:rgba(23,20,15,.24);filter:var(--filter-rule-wobble)}
-.bm-hand-rule--faint{background:rgba(23,20,15,.13)}
+.bm-hand-rule{height:1px;background:rgba(20,22,27,.24);filter:var(--filter-rule-wobble)}
+.bm-hand-rule--faint{background:rgba(20,22,27,.13)}
 .bm-hand-rule--accent{background:var(--accent-2)}
 
 /* static plate-strength grain on a non-image container, e.g. the footer. Same tokens as the
