@@ -8,9 +8,13 @@ const PLACEHOLDER_IMAGE_HOST = "picsum.photos";
 const contentSecurityPolicy = [
   "default-src 'self'",
   "img-src 'self' data: https://picsum.photos https://fastly.picsum.photos",
-  // Next.js dev (HMR) and the app's inline style props both need 'unsafe-inline'/'unsafe-eval'
-  // relaxed in development only; production keeps the tighter policy.
-  `script-src 'self'${process.env.NODE_ENV === "development" ? " 'unsafe-eval' 'unsafe-inline'" : ""}`,
+  // 'unsafe-inline' on script-src is required in every environment, not just dev — Next.js's
+  // App Router bootstraps hydration via an inline <script> (the streamed RSC payload), so a
+  // strict 'self'-only policy silently blocks all client-side JS from ever running. The
+  // stricter fix is a per-request nonce (via middleware, threaded into that inline script and
+  // an emitted <meta> tag); 'unsafe-inline' is the pragmatic default without that in place.
+  // 'unsafe-eval' is dev-only, for Turbopack's HMR runtime.
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "object-src 'none'",

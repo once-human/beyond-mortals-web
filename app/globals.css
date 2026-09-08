@@ -60,10 +60,14 @@ body {
   filter: blur(0);
   transform: scale(1);
   transition:
-    opacity 520ms var(--ease-glide),
-    transform 520ms var(--ease-glide),
-    filter 520ms var(--ease-glide);
-  animation: bm-splash-fail-open 1ms linear 5s forwards;
+    opacity 400ms var(--ease-glide),
+    transform 400ms var(--ease-glide),
+    filter 400ms var(--ease-glide);
+  /* Pure-CSS backstop: if the client runtime never runs (script blocked, crashed before
+     hydration), this forces the splash out unconditionally by the same 4.6s mark the JS
+     safety timer uses (components/chrome/Splash.tsx SAFETY_MS), so the 5s ceiling holds
+     with zero dependency on JS. */
+  animation: bm-splash-fail-open 1ms linear 4.6s forwards;
 }
 
 #bm-splash[data-exiting="true"] {
@@ -118,6 +122,7 @@ body {
 @keyframes bm-splash-fail-open {
   to {
     pointer-events: none;
+    opacity: 0;
     visibility: hidden;
   }
 }
