@@ -9,7 +9,7 @@ import { campaign, productSlug, products } from "@/lib/data";
 
 export default function Home() {
   return (
-    <main style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "0 var(--gutter-page)" }}>
+    <main id="main-content" style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "0 var(--gutter-page)" }}>
       {/* opening — extreme scale contrast, asymmetric */}
       <section style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", padding: "var(--space-9) 0 var(--space-10)", alignItems: "start" }}>
         <div style={{ gridColumn: "1 / span 8" }}>
@@ -34,7 +34,7 @@ export default function Home() {
 
       {/* campaign plate running past the right margin, wordmark laid over the image like a signature on a photograph */}
       <section style={{ position: "relative", marginRight: "calc(var(--gutter-page) * -1)" }}>
-        <ImagePlate ratio="panorama" plate="PLATE 01" stock="CAMPAIGN / DROP 01" caption="Placeholder — not brand photography" treatment="deep" deckle src={campaign} alt="">
+        <ImagePlate ratio="panorama" plate="PLATE 01" stock="CAMPAIGN / DROP 01" caption="Placeholder — not brand photography" treatment="deep" deckle src={campaign} alt="Drop 01 campaign photography, placeholder">
           <div style={{ position: "absolute", inset: 0, background: "var(--scrim-bottom)" }} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

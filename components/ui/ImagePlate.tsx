@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { ReactNode } from "react";
 import { Stamped } from "./Stamped";
 
@@ -59,8 +60,13 @@ export function ImagePlate({
       ) : null}
       <div className={cls}>
         {src ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <Image
+            src={src}
+            alt={alt || [caption, plate].filter(Boolean).join(" — ") || "Beyond Mortals photography"}
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+          />
         ) : (
           <>
             {hatch ? <span className="bm-plate__hatch" /> : null}

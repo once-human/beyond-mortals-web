@@ -8,6 +8,7 @@ import { Splash } from "@/components/chrome/Splash";
 import { ToastHost } from "@/components/chrome/ToastHost";
 import { FilmLayer } from "@/components/ui/FilmLayer";
 import { CartProvider } from "@/lib/cart-context";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 // Display / record: Spectral, set clean.
@@ -43,15 +44,24 @@ const robotoMono = Roboto_Mono({
   display: "swap",
 });
 
+const title = "Beyond Mortals";
+const description = "Drop 01 — six pieces, printed to order. The record, the catalogue, and the notice.";
+
 export const metadata: Metadata = {
-  title: "Beyond Mortals",
-  description: "Drop 01 — six pieces, printed to order. The record, the catalogue, and the notice.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: title, template: `%s — ${title}` },
+  description,
+  openGraph: { title, description, siteName: title, type: "website" },
+  twitter: { card: "summary", title, description },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spectral.variable} ${spaceGrotesk.variable} ${archivo.variable} ${robotoMono.variable}`}>
       <body>
+        <a href="#main-content" className="bm-skip-link">
+          Skip to content
+        </a>
         <CartProvider>
           <Splash />
           <Header />

@@ -5,7 +5,7 @@ import { Rule } from "@/components/ui/Rule";
 import { Stamped } from "@/components/ui/Stamped";
 import { productSlug, products } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Catalogue — Beyond Mortals" };
+export const metadata: Metadata = { title: "Catalogue", description: "Drop 01 — six pieces, printed to order. No restock." };
 
 // Deliberately uneven: column spans, offsets and scales differ per entry, and PLATE 04 runs past the margin.
 const PLACEMENT: { col: string; top: string | number; scale: "lead" | "minor" | "standard"; bleed?: boolean }[] = [
@@ -19,7 +19,7 @@ const PLACEMENT: { col: string; top: string | number; scale: "lead" | "minor" | 
 
 export default function Catalogue() {
   return (
-    <main style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-8) var(--gutter-page) 0" }}>
+    <main id="main-content" style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-8) var(--gutter-page) 0" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", alignItems: "end", paddingBottom: "var(--space-6)" }}>
         <div style={{ gridColumn: "1 / span 7" }}>
           <Stamped className="bm-micro" amount={1}>

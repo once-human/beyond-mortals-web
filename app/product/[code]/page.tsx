@@ -11,7 +11,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ code: string }> }): Promise<Metadata> {
   const { code } = await params;
   const product = productByCode(code);
-  return { title: product ? `${product.name} — Beyond Mortals` : "Beyond Mortals" };
+  if (!product) return { title: "Product not found" };
+  return { title: product.name, description: `${product.name} — ${product.price}, ${product.meta}.` };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ code: string }> }) {

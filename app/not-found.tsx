@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import React from "react";
 import { ImagePlate } from "@/components/ui/ImagePlate";
 import { Stamped } from "@/components/ui/Stamped";
 import { TextLink } from "@/components/ui/TextLink";
 
+export const metadata: Metadata = { title: "Page not found" };
+
 export default function NotFound() {
   return (
-    <main style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-10) var(--gutter-page)" }}>
+    <main id="main-content" style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-10) var(--gutter-page)" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", alignItems: "start" }}>
         <div style={{ gridColumn: "1 / span 5" }}>
           <ImagePlate ratio="square" plate="MISSING" note="No entry at this address" state="empty" />

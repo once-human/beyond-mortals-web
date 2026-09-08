@@ -23,6 +23,30 @@ body {
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
+}
+
+.bm-skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  background: var(--ink-0);
+  color: var(--bone-0);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top var(--dur-fast) var(--ease-flat);
+}
+
+.bm-skip-link:focus-visible {
+  top: var(--space-4);
+}
+
 .bm-toast-slot {
   position: fixed;
   bottom: var(--space-8);

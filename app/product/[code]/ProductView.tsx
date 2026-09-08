@@ -22,7 +22,7 @@ export function ProductView({ product }: { product: Product }) {
   const related = products.filter((x) => x.code !== p.code).slice(0, 3);
 
   return (
-    <main style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-7) var(--gutter-page) 0" }}>
+    <main id="main-content" style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "var(--space-7) var(--gutter-page) 0" }}>
       <div className="bm-micro" style={{ marginBottom: "var(--space-7)" }}>
         <TextLink quiet micro href="/catalogue">
           Catalogue
@@ -33,7 +33,7 @@ export function ProductView({ product }: { product: Product }) {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(12,1fr)", gap: "var(--gutter-column)", alignItems: "start" }}>
         <div style={{ gridColumn: "1 / span 7", display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: "var(--space-6) var(--gutter-column)" }}>
           <div style={{ gridColumn: "1 / span 7" }}>
-            <ImagePlate ratio="tall" plate={p.plate} stock={p.code} caption="Front — placeholder" treatment="deep" deckle src={p.src} alt="" />
+            <ImagePlate ratio="tall" plate={p.plate} stock={p.code} caption="Front — placeholder" treatment="deep" deckle src={p.src} alt={`${p.name} — front, placeholder photography`} />
           </div>
           <div style={{ gridColumn: "1 / span 3" }}>
             <ImagePlate ratio="square" plate="DETAIL A" caption="Print" treatment="silver" src={detail} alt="" />

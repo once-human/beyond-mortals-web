@@ -21,7 +21,7 @@ export function ProductCard({ name, price, code, meta, plate, src, ratio, scale 
   const r = ratio || (scale === "lead" ? "tall" : scale === "minor" ? "square" : "portrait");
   return (
     <Link href={href} className={["bm-product", SCALES[scale] || "", className].filter(Boolean).join(" ")}>
-      <ImagePlate src={src} ratio={r} plate={plate} stock={code} caption={meta ? undefined : "Front"} note={code ? code + " / front" : "No photography supplied"} />
+      <ImagePlate src={src} alt={name} ratio={r} plate={plate} stock={code} caption={meta ? undefined : "Front"} note={code ? code + " / front" : "No photography supplied"} />
       <div className="bm-product__row">
         <span className="bm-product__name">{name}</span>
         <span className="bm-product__price">{price}</span>
