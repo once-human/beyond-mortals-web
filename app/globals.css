@@ -42,6 +42,68 @@ body {
   top: var(--space-4);
 }
 
+.bm-toast-slot {
+  position: fixed;
+  bottom: var(--space-8);
+  left: var(--gutter-page);
+  z-index: 70;
+}
+
+#bm-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--surface-page);
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+  transition:
+    opacity 520ms var(--ease-glide),
+    transform 520ms var(--ease-glide),
+    filter 520ms var(--ease-glide);
+  animation: bm-splash-fail-open 1ms linear 5s forwards;
+}
+
+#bm-splash[data-exiting="true"] {
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(4px);
+  transform: scale(1.01);
+}
+
+.bm-splash__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  animation: bm-splash-in var(--dur-slow) var(--ease-glide) both;
+}
+
+.bm-splash__wordmark {
+  width: min(260px, 40vw);
+  height: auto;
+}
+
+.bm-splash__track {
+  position: relative;
+  width: 180px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--border-hair);
+}
+
+.bm-splash__progress {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-1);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+  transition: transform 240ms var(--ease-glide);
+}
+
 @keyframes bm-splash-in {
   from {
     opacity: 0;
@@ -53,19 +115,17 @@ body {
   }
 }
 
-.bm-splash-in {
-  animation: bm-splash-in 620ms var(--ease-glide) both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bm-splash-in {
-    animation: none;
+@keyframes bm-splash-fail-open {
+  to {
+    pointer-events: none;
+    visibility: hidden;
   }
 }
 
-.bm-toast-slot {
-  position: fixed;
-  bottom: var(--space-8);
-  left: var(--gutter-page);
-  z-index: 70;
+@media (prefers-reduced-motion: reduce) {
+  #bm-splash,
+  .bm-splash__content {
+    animation: none;
+    transition: none;
+  }
 }
