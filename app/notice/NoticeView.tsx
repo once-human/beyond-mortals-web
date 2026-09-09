@@ -33,7 +33,7 @@ export function NoticeView() {
             }}
             style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", maxWidth: 380, marginTop: "var(--space-8)" }}
           >
-            <Input label="Email" placeholder="name@domain" required />
+            <Input type="email" label="Email" placeholder="name@domain" required />
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
               <Checkbox label="Drop notice" defaultChecked />
               <Checkbox label="Hewn, when it exists" />

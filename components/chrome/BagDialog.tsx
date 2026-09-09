@@ -34,7 +34,7 @@ export function BagDialog() {
       {bag.length ? (
         <>
           {bag.map((line, i) => (
-            <CartLine key={i} {...line} onQty={(q) => updateQty(i, q)} onRemove={() => remove(i)} />
+            <CartLine key={`${line.code}-${line.size || "nosize"}-${i}`} {...line} onQty={(q) => updateQty(i, q)} onRemove={() => remove(i)} />
           ))}
           <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "var(--space-5)" }}>
             <span className="bm-micro">Total</span>

@@ -42,7 +42,7 @@ export function Footer() {
             }}
             style={{ display: "flex", gap: "var(--space-3)", maxWidth: 340 }}
           >
-            <Input placeholder="name@domain" aria-label="Email" />
+            <Input type="email" placeholder="name@domain" aria-label="Email" required />
             <Button variant="primary" type="submit">
               Notify
             </Button>
@@ -59,7 +59,7 @@ export function Footer() {
           ))}
         </div>
         <div style={{ gridColumn: "11 / span 2", display: "flex", flexDirection: "column", gap: "var(--space-4)", marginTop: "var(--space-7)" }}>
-          <a href="#" className="bm-link bm-link--quiet" style={{ fontSize: "var(--size-body-sm)" }}>
+          <a href="#" aria-label="Beyond Mortals Instagram" className="bm-link bm-link--quiet" style={{ fontSize: "var(--size-body-sm)" }}>
             @beyondthemortals ↗
           </a>
           <span className="bm-micro">Printed to order · Bengaluru</span>
