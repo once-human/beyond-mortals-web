@@ -49,6 +49,46 @@ body {
   text-decoration: none;
 }
 
+.bm-header-brand-text {
+  transition: opacity var(--dur-fast) var(--ease-glide);
+}
+
+.bm-header-logo-link:hover .bm-header-brand-text {
+  opacity: 0.82;
+}
+
+.bm-header--dark .bm-link {
+  color: var(--bone-1);
+}
+
+.bm-header--dark .bm-link--quiet {
+  color: var(--bone-2);
+}
+
+.bm-header--dark .bm-link:hover {
+  color: var(--bone-blown);
+}
+
+.bm-header--dark .bm-iconbtn {
+  color: var(--bone-1);
+}
+
+.bm-header--dark .bm-iconbtn:hover {
+  color: var(--bone-blown);
+}
+
+.bm-footer--dark .bm-link {
+  color: var(--bone-1);
+}
+
+.bm-footer--dark .bm-link--quiet {
+  color: var(--bone-2);
+}
+
+.bm-footer--dark .bm-link:hover {
+  color: var(--bone-blown);
+}
+
 .bm-toast-slot {
   position: fixed;
   bottom: var(--space-8);

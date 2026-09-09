@@ -16,7 +16,7 @@ const PAGES: [string, string][] = [
 export function Footer() {
   const { say } = useCart();
   return (
-    <footer style={{ marginTop: "var(--stack-chapter)", background: "var(--surface-deep)" }}>
+    <footer className="bm-footer--dark" style={{ marginTop: "var(--stack-chapter)", background: "var(--ink-0)", borderTop: "1px solid var(--ink-4)" }}>
       <div className="bm-hand-rule" />
       <div
         style={{
@@ -29,10 +29,10 @@ export function Footer() {
         }}
       >
         <div style={{ gridColumn: "1 / span 5" }}>
-          <Stamped className="bm-micro" as="div">
+          <Stamped className="bm-micro" as="div" style={{ color: "var(--bone-1)" }}>
             Notice
           </Stamped>
-          <p style={{ font: "var(--type-body)", fontSize: "var(--size-body-sm)", color: "var(--text-secondary)", maxWidth: "36ch", margin: "var(--space-5) 0 var(--space-6)" }}>
+          <p style={{ font: "var(--type-body)", fontSize: "var(--size-body-sm)", color: "var(--bone-2)", maxWidth: "36ch", margin: "var(--space-5) 0 var(--space-6)" }}>
             Drop 01 is six pieces, printed to order. Notice goes out once, the morning it opens.
           </p>
           <form
@@ -49,7 +49,7 @@ export function Footer() {
           </form>
         </div>
         <div style={{ gridColumn: "8 / span 2", display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-          <Stamped className="bm-micro" as="div">
+          <Stamped className="bm-micro" as="div" style={{ color: "var(--bone-1)" }}>
             Pages
           </Stamped>
           {PAGES.map(([href, label]) => (
@@ -62,12 +62,12 @@ export function Footer() {
           <a href="#" aria-label="Beyond Mortals Instagram" className="bm-link bm-link--quiet" style={{ fontSize: "var(--size-body-sm)" }}>
             @beyondthemortals ↗
           </a>
-          <span className="bm-micro">Printed to order · Bengaluru</span>
-          <span className="bm-micro">Drop 01 · 2026</span>
+          <span className="bm-micro" style={{ color: "var(--bone-3)" }}>Printed to order · Bengaluru</span>
+          <span className="bm-micro" style={{ color: "var(--bone-3)" }}>Drop 01 · 2026</span>
         </div>
       </div>
       <div style={{ maxWidth: "var(--container-page)", margin: "0 auto", padding: "0 var(--gutter-page) var(--space-9)" }}>
-        <Wordmark size={11} amount={1.2} tone="var(--paper-4)" />
+        <Wordmark size={11} amount={1.2} tone="var(--bone-1)" />
       </div>
     </footer>
   );

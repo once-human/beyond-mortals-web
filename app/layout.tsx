@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Instrument_Sans, Roboto_Mono, Spectral } from "next/font/google";
+import { Archivo, Bodoni_Moda, Instrument_Sans, Playfair_Display, Roboto_Mono, Spectral } from "next/font/google";
 import React from "react";
 import { BagDialog } from "@/components/chrome/BagDialog";
 import { Footer } from "@/components/chrome/Footer";
@@ -14,9 +14,24 @@ import "./globals.css";
 // Display / record: Spectral, set clean.
 const spectral = Spectral({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "700"],
   style: ["normal", "italic"],
   variable: "--font-spectral",
+  display: "swap",
+});
+
+// Luxury High-Contrast Serif (Almost Gods style display mark)
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -58,7 +73,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spectral.variable} ${instrumentSans.variable} ${archivo.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${spectral.variable} ${bodoni.variable} ${playfair.variable} ${instrumentSans.variable} ${archivo.variable} ${robotoMono.variable}`}>
       <body>
         <a href="#main-content" className="bm-skip-link">
           Skip to content
