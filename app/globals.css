@@ -42,6 +42,13 @@ body {
   top: var(--space-4);
 }
 
+.bm-header-logo-link {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  text-decoration: none;
+}
+
 .bm-toast-slot {
   position: fixed;
   bottom: var(--space-8);

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { HeaderWordmark } from "./HeaderWordmark";
 import { IconButton } from "../ui/IconButton";
 import { Stamped } from "../ui/Stamped";
 import { useCart } from "@/lib/cart-context";
@@ -30,9 +31,8 @@ export function Header() {
           gap: "var(--space-8)",
         }}
       >
-        <Link href="/" style={{ border: 0, display: "inline-flex", alignItems: "center" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/beyond-mortals-wordmark-dark.svg" alt="Beyond Mortals" style={{ height: 20, width: "auto", display: "block" }} />
+        <Link href="/" className="bm-header-logo-link">
+          <HeaderWordmark />
         </Link>
         <nav style={{ display: "flex", gap: "var(--space-8)", alignItems: "center" }}>
           {NAV.map(([href, label]) => (
