@@ -57,26 +57,6 @@ body {
   opacity: 0.82;
 }
 
-.bm-header--dark .bm-link {
-  color: var(--bone-1);
-}
-
-.bm-header--dark .bm-link--quiet {
-  color: var(--bone-2);
-}
-
-.bm-header--dark .bm-link:hover {
-  color: var(--bone-blown);
-}
-
-.bm-header--dark .bm-iconbtn {
-  color: var(--bone-1);
-}
-
-.bm-header--dark .bm-iconbtn:hover {
-  color: var(--bone-blown);
-}
-
 .bm-footer--dark .bm-link {
   color: var(--bone-1);
 }
