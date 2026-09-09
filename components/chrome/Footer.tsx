@@ -16,7 +16,7 @@ const PAGES: [string, string][] = [
 export function Footer() {
   const { say } = useCart();
   return (
-    <footer className="bm-footer--dark" style={{ marginTop: "var(--stack-chapter)", background: "#22262f", borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}>
+    <footer className="bm-footer--dark" style={{ marginTop: "var(--stack-chapter)", background: "#121212", borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}>
       <div className="bm-hand-rule" />
       <div
         style={{
